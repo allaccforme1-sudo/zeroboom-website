@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
             height: 100vh;
         }
 
-        /* Canvas برای انیمیشن ذرات */
+        /* Canvas برای انیمیشن */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -28,7 +28,7 @@
             z-index: 1;
         }
 
-        /* کانتینر اصلی محتوا */
+        /* کانتینر اصلی */
         .hero-container {
             position: relative;
             z-index: 2;
@@ -41,74 +41,86 @@
             padding: 20px;
         }
 
-        /* لوگو با انیمیشن گرادیانت متحرک */
+        /* لوگو با انیمیشن پیشرفته */
         .logo {
             font-size: 5rem;
             font-weight: 900;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
-            background-size: 200% 200%;
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientShift 5s ease infinite, logoGlow 3s ease-in-out infinite;
+            animation: gradientShift 5s ease infinite, logoGlow 3s ease-in-out infinite, float 6s ease-in-out infinite;
             letter-spacing: 3px;
             margin-bottom: 20px;
+            position: relative;
         }
 
-        /* انیمیشن تغییر رنگ گرادیانت */
+        /* دایره نورانی پشت لوگو */
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite, pulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border: 2px solid rgba(240, 147, 251, 0.2);
+            border-radius: 50%;
+            animation: rotate 15s linear infinite reverse, pulse 4s ease-in-out infinite;
+            z-index: -1;
+        }
+
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* انیمیشن درخشش لوگو */
         @keyframes logoGlow {
-            0%, 100% {
-                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6));
-            }
-            50% {
-                filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8));
-            }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
+            50% { filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8)); }
         }
 
-        /* شعار با افکت تایپ */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* شعار */
         .tagline {
             font-size: 1.5rem;
             color: #ffffff;
             margin-bottom: 40px;
             opacity: 0.9;
-            border-right: 3px solid #667eea;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 3s steps(30, end) 0.5s both, blinkCaret 0.75s step-end infinite;
+            animation: fadeInUp 1s ease-out 0.5s both;
         }
 
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blinkCaret {
-            from, to {
-                border-color: transparent;
-            }
-            50% {
-                border-color: #667eea;
-            }
-        }
-
-        /* دکمه CTA با افکت حرفه‌ای */
+        /* دکمه */
         .cta-button {
             padding: 15px 40px;
             font-size: 1.1rem;
@@ -123,7 +135,7 @@
             display: inline-block;
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 1s ease-out 3.5s both;
+            animation: fadeInUp 1s ease-out 1s both;
         }
 
         .cta-button::before {
@@ -150,89 +162,61 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ریسپانسیو برای موبایل */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 3rem;
-            }
-            .tagline {
-                font-size: 1.2rem;
-            }
+            .logo { font-size: 3rem; }
+            .tagline { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Canvas برای انیمیشن ذرات -->
     <canvas id="particles-canvas"></canvas>
 
-    <!-- محتوای اصلی -->
     <div class="hero-container">
         <h1 class="logo">ZeroBoom</h1>
         <p class="tagline">From Zero to Summit</p>
-        <a href="#contact" class="cta-button">Start Your Project</a>
+        <a href="contact.html" class="cta-button">Start Your Project</a>
     </div>
 
     <script>
-        // انیمیشن ذرات متصل با واکنش به ماوس
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
 
-        // تنظیم اندازه canvas
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // موقعیت ماوس
-        const mouse = {
-            x: null,
-            y: null,
-            radius: 150
-        };
+        const mouse = { x: null, y: null, radius: 150 };
 
         window.addEventListener('mousemove', (event) => {
             mouse.x = event.x;
             mouse.y = event.y;
         });
 
-        // تغییر اندازه در صورت تغییر پنجره
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
 
-        // کلاس ذره
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.originalX = this.x;
-                this.originalY = this.y;
                 this.vx = (Math.random() - 0.5) * 0.5;
                 this.vy = (Math.random() - 0.5) * 0.5;
                 this.radius = Math.random() * 2 + 1;
                 this.color = `rgba(102, 126, 234, ${Math.random() * 0.5 + 0.3})`;
             }
 
-            // حرکت ذره
             update() {
-                // حرکت عادی
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // برگشت از لبه‌ها
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-                // واکنش به ماوس
                 if (mouse.x !== null && mouse.y !== null) {
                     const dx = mouse.x - this.x;
                     const dy = mouse.y - this.y;
@@ -240,15 +224,12 @@
 
                     if (distance < mouse.radius) {
                         const force = (mouse.radius - distance) / mouse.radius;
-                        const forceDirectionX = dx / distance;
-                        const forceDirectionY = dy / distance;
-                        this.x -= forceDirectionX * force * 2;
-                        this.y -= forceDirectionY * force * 2;
+                        this.x -= (dx / distance) * force * 2;
+                        this.y -= (dy / distance) * force * 2;
                     }
                 }
             }
 
-            // رسم ذره
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -257,7 +238,6 @@
             }
         }
 
-        // ساخت ذرات
         const particles = [];
         const particleCount = window.innerWidth < 768 ? 50 : 100;
 
@@ -265,7 +245,6 @@
             particles.push(new Particle());
         }
 
-        // رسم خطوط بین ذرات نزدیک
         function drawLines() {
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
@@ -285,7 +264,6 @@
             }
         }
 
-        // حلقه انیمیشن
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -295,7 +273,6 @@
             });
 
             drawLines();
-
             requestAnimationFrame(animate);
         }
 
