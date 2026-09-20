@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZeroBoom | از صفر تا بام</title>
+    <title>ZeroBoom | From Zero to Summit</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
             background: #0a0a0a;
             overflow: hidden;
             height: 100vh;
@@ -41,18 +41,31 @@
             padding: 20px;
         }
 
-        /* لوگو با افکت درخشش */
+        /* لوگو با انیمیشن گرادیانت متحرک */
         .logo {
             font-size: 5rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 80px rgba(102, 126, 234, 0.5);
+            animation: gradientShift 5s ease infinite, logoGlow 3s ease-in-out infinite;
+            letter-spacing: 3px;
             margin-bottom: 20px;
-            animation: logoGlow 3s ease-in-out infinite;
-            letter-spacing: 2px;
+        }
+
+        /* انیمیشن تغییر رنگ گرادیانت */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* انیمیشن درخشش لوگو */
@@ -65,27 +78,37 @@
             }
         }
 
-        /* شعار */
+        /* شعار با افکت تایپ */
         .tagline {
             font-size: 1.5rem;
             color: #ffffff;
             margin-bottom: 40px;
             opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.5s both;
+            border-right: 3px solid #667eea;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3s steps(30, end) 0.5s both, blinkCaret 0.75s step-end infinite;
         }
 
-        @keyframes fadeInUp {
+        @keyframes typing {
             from {
-                opacity: 0;
-                transform: translateY(30px);
+                width: 0;
             }
             to {
-                opacity: 0.9;
-                transform: translateY(0);
+                width: 100%;
             }
         }
 
-        /* دکمه CTA */
+        @keyframes blinkCaret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #667eea;
+            }
+        }
+
+        /* دکمه CTA با افکت حرفه‌ای */
         .cta-button {
             padding: 15px 40px;
             font-size: 1.1rem;
@@ -98,12 +121,43 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            animation: fadeInUp 1s ease-out 1s both;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 3.5s both;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ریسپانسیو برای موبایل */
@@ -124,18 +178,30 @@
     <!-- محتوای اصلی -->
     <div class="hero-container">
         <h1 class="logo">ZeroBoom</h1>
-        <p class="tagline">از صفر تا بامِ کسب‌وکار شما</p>
-        <a href="#contact" class="cta-button">شروع پروژه</a>
+        <p class="tagline">From Zero to Summit</p>
+        <a href="#contact" class="cta-button">Start Your Project</a>
     </div>
 
     <script>
-        // انیمیشن ذرات متصل (Particle Network)
+        // انیمیشن ذرات متصل با واکنش به ماوس
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
 
         // تنظیم اندازه canvas
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
+        // موقعیت ماوس
+        const mouse = {
+            x: null,
+            y: null,
+            radius: 150
+        };
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
 
         // تغییر اندازه در صورت تغییر پنجره
         window.addEventListener('resize', () => {
@@ -148,6 +214,8 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
+                this.originalX = this.x;
+                this.originalY = this.y;
                 this.vx = (Math.random() - 0.5) * 0.5;
                 this.vy = (Math.random() - 0.5) * 0.5;
                 this.radius = Math.random() * 2 + 1;
@@ -156,12 +224,28 @@
 
             // حرکت ذره
             update() {
+                // حرکت عادی
                 this.x += this.vx;
                 this.y += this.vy;
 
                 // برگشت از لبه‌ها
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                // واکنش به ماوس
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouse.radius) {
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        this.x -= forceDirectionX * force * 2;
+                        this.y -= forceDirectionY * force * 2;
+                    }
+                }
             }
 
             // رسم ذره
@@ -175,7 +259,7 @@
 
         // ساخت ذرات
         const particles = [];
-        const particleCount = window.innerWidth < 768 ? 50 : 100; // کمتر برای موبایل
+        const particleCount = window.innerWidth < 768 ? 50 : 100;
 
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
