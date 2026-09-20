@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | ZeroBoom</title>
+    <title>ZeroBoom | From Zero to Summit</title>
     <style>
         * {
             margin: 0;
@@ -16,10 +16,9 @@
             background: #0a0a0a;
             color: #ffffff;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        /* Canvas برای انیمیشن */
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -29,22 +28,20 @@
             z-index: 1;
         }
 
-        /* کانتینر اصلی */
         .container {
             position: relative;
             z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
         }
 
-        /* لوگو */
         .logo {
-            font-size: 3.5rem;
+            font-size: 6rem;
             font-weight: 900;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
             background-size: 300% 300%;
@@ -53,8 +50,7 @@
             background-clip: text;
             animation: gradientShift 5s ease infinite, logoGlow 3s ease-in-out infinite;
             letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-align: center;
+            margin-bottom: 20px;
         }
 
         @keyframes gradientShift {
@@ -68,136 +64,35 @@
             50% { filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8)); }
         }
 
+        .tagline {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
         .back-button {
-            display: inline-block;
-            margin-bottom: 20px;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.5);
+            border-radius: 50px;
             color: #667eea;
             text-decoration: none;
+            font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
         }
 
         .back-button:hover {
-            color: #f093fb;
-            transform: translateX(-5px);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .subtitle {
-            color: #cccccc;
-            margin-bottom: 40px;
-            text-align: center;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        /* فرم با استایل شیشه‌ای */
-        .form-container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #667eea;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            border-radius: 8px;
-            color: #ffffff;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 8px;
             color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .submit-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
+            border-color: transparent;
+            transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @media (max-width: 768px) {
-            .logo { font-size: 2.5rem; }
-            h1 { font-size: 2rem; }
-            .form-container { padding: 30px 20px; }
+            .logo { font-size: 4rem; }
+            .tagline { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -205,80 +100,29 @@
     <canvas id="bg-canvas"></canvas>
 
     <div class="container">
+        <h1 class="logo">ZeroBoom</h1>
+        <p class="tagline">From Zero to Summit</p>
         <a href="index.html" class="back-button">← Back to Home</a>
-        
-        <div class="logo">ZeroBoom</div>
-        <h1>Start Your Project</h1>
-        <p class="subtitle">Tell us about your project and we'll get back to you within 24 hours.</p>
-
-        <div class="form-container">
-            <form>
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Service Needed</label>
-                    <select id="service" name="service" required>
-                        <option value="">Select a service...</option>
-                        <option value="website">Website Design</option>
-                        <option value="ecommerce">E-commerce Store</option>
-                        <option value="landing">Landing Page</option>
-                        <option value="seo">SEO Optimization</option>
-                        <option value="support">Website Support</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Project Details</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Send Message 🚀</button>
-            </form>
-        </div>
     </div>
 
     <script>
-        // انیمیشن پیشرفته پس‌زمینه
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // مرکز دایره نورانی (سمت چپ)
-        const orbCenter = {
-            x: canvas.width * 0.35,
-            y: canvas.height * 0.5
-        };
-
-        // مرکز افکت انفجاری (سمت راست)
-        const boomCenter = {
-            x: canvas.width * 0.75,
-            y: canvas.height * 0.5
-        };
-
-        // ذرات شبکه
         const particles = [];
-        const particleCount = window.innerWidth < 768 ? 60 : 120;
+        const particleCount = window.innerWidth < 768 ? 50 : 100;
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.3;
-                this.vy = (Math.random() - 0.5) * 0.3;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
                 this.radius = Math.random() * 2 + 1;
-                this.color = Math.random() > 0.5 ? 
-                    `rgba(102, 126, 234, ${Math.random() * 0.5 + 0.3})` : 
-                    `rgba(240, 147, 251, ${Math.random() * 0.5 + 0.3})`;
+                this.color = `rgba(102, 126, 234, ${Math.random() * 0.5 + 0.3})`;
             }
 
             update() {
@@ -301,112 +145,7 @@
             particles.push(new Particle());
         }
 
-        // ذرات انفجاری
-        const boomParticles = [];
-        const boomCount = 50;
-
-        class BoomParticle {
-            constructor() {
-                this.reset();
-            }
-
-            reset() {
-                this.x = boomCenter.x;
-                this.y = boomCenter.y;
-                const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 3 + 1;
-                this.vx = Math.cos(angle) * speed;
-                this.vy = Math.sin(angle) * speed;
-                this.radius = Math.random() * 3 + 1;
-                this.life = 1;
-                this.decay = Math.random() * 0.02 + 0.01;
-                this.color = `rgba(240, 147, 251, ${this.life})`;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.life -= this.decay;
-
-                if (this.life <= 0) {
-                    this.reset();
-                }
-
-                this.color = `rgba(240, 147, 251, ${this.life})`;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-        }
-
-        for (let i = 0; i < boomCount; i++) {
-            boomParticles.push(new BoomParticle());
-        }
-
-        // رسم دایره نورانی چرخان
-        let orbAngle = 0;
-        function drawOrb() {
-            orbAngle += 0.01;
-
-            // دایره اصلی
-            ctx.beginPath();
-            ctx.arc(orbCenter.x, orbCenter.y, 80, 0, Math.PI * 2);
-            ctx.strokeStyle = 'rgba(102, 126, 234, 0.3)';
-            ctx.lineWidth = 3;
-            ctx.stroke();
-
-            // دایره چرخان
-            ctx.beginPath();
-            ctx.arc(orbCenter.x, orbCenter.y, 90, orbAngle, orbAngle + Math.PI);
-            ctx.strokeStyle = 'rgba(240, 147, 251, 0.5)';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-
-            // افکت درخشش
-            const gradient = ctx.createRadialGradient(
-                orbCenter.x, orbCenter.y, 0,
-                orbCenter.x, orbCenter.y, 100
-            );
-            gradient.addColorStop(0, 'rgba(102, 126, 234, 0.3)');
-            gradient.addColorStop(0.5, 'rgba(118, 75, 162, 0.1)');
-            gradient.addColorStop(1, 'rgba(102, 126, 234, 0)');
-
-            ctx.beginPath();
-            ctx.arc(orbCenter.x, orbCenter.y, 100, 0, Math.PI * 2);
-            ctx.fillStyle = gradient;
-            ctx.fill();
-        }
-
-        // رسم خطوط منحنی از دایره به ذرات
-        function drawCurvedLines() {
-            particles.forEach((particle, index) => {
-                if (index % 3 === 0) {
-                    const dx = particle.x - orbCenter.x;
-                    const dy = particle.y - orbCenter.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 300) {
-                        ctx.beginPath();
-                        ctx.moveTo(orbCenter.x, orbCenter.y);
-                        
-                        const cpX = (orbCenter.x + particle.x) / 2 + (Math.random() - 0.5) * 50;
-                        const cpY = (orbCenter.y + particle.y) / 2 + (Math.random() - 0.5) * 50;
-                        
-                        ctx.quadraticCurveTo(cpX, cpY, particle.x, particle.y);
-                        ctx.strokeStyle = `rgba(102, 126, 234, ${0.2 * (1 - distance / 300)})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
-            });
-        }
-
-        // رسم خطوط شبکه
-        function drawNetwork() {
+        function drawLines() {
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -417,7 +156,7 @@
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(102, 126, 234, ${0.15 * (1 - distance / 150)})`;
+                        ctx.strokeStyle = `rgba(102, 126, 234, ${0.2 * (1 - distance / 150)})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
@@ -425,45 +164,23 @@
             }
         }
 
-        // حلقه انیمیشن
         function animate() {
-            ctx.fillStyle = 'rgba(10, 10, 10, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // رسم دایره نورانی
-            drawOrb();
-
-            // رسم خطوط منحنی
-            drawCurvedLines();
-
-            // رسم شبکه ذرات
-            drawNetwork();
-
-            // رسم و به‌روزرسانی ذرات
             particles.forEach(particle => {
                 particle.update();
                 particle.draw();
             });
 
-            // رسم ذرات انفجاری
-            boomParticles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
+            drawLines();
             requestAnimationFrame(animate);
         }
 
         animate();
 
-        // تغییر اندازه
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            orbCenter.x = canvas.width * 0.35;
-            orbCenter.y = canvas.height * 0.5;
-            boomCenter.x = canvas.width * 0.75;
-            boomCenter.y = canvas.height * 0.5;
         });
     </script>
 </body>
