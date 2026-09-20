@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroBoom | از صفر تا بام</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            background: #0a0a0a;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Canvas برای انیمیشن ذرات */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* کانتینر اصلی محتوا */
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* لوگو با افکت درخشش */
+        .logo {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(102, 126, 234, 0.5);
+            margin-bottom: 20px;
+            animation: logoGlow 3s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+
+        /* انیمیشن درخشش لوگو */
+        @keyframes logoGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8));
+            }
+        }
+
+        /* شعار */
+        .tagline {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+        }
+
+        /* دکمه CTA */
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* ریسپانسیو برای موبایل */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas برای انیمیشن ذرات -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- محتوای اصلی -->
+    <div class="hero-container">
+        <h1 class="logo">ZeroBoom</h1>
+        <p class="tagline">از صفر تا بامِ کسب‌وکار شما</p>
+        <a href="#contact" class="cta-button">شروع پروژه</a>
+    </div>
+
+    <script>
+        // انیمیشن ذرات متصل (Particle Network)
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // تنظیم اندازه canvas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // تغییر اندازه در صورت تغییر پنجره
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // کلاس ذره
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.color = `rgba(102, 126, 234, ${Math.random() * 0.5 + 0.3})`;
+            }
+
+            // حرکت ذره
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // برگشت از لبه‌ها
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            // رسم ذره
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        // ساخت ذرات
+        const particles = [];
+        const particleCount = window.innerWidth < 768 ? 50 : 100; // کمتر برای موبایل
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        // رسم خطوط بین ذرات نزدیک
+        function drawLines() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(102, 126, 234, ${0.2 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // حلقه انیمیشن
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            drawLines();
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
