@@ -241,7 +241,7 @@
 
     <!-- دکمه تغییر زبان -->
     <button class="lang-switcher" onclick="toggleLanguage()">
-        <span class="flag">🌐</span>
+        <span>🌐</span>
         <span id="langText">فارسی</span>
     </button>
 
@@ -270,7 +270,7 @@
     </div>
 
     <script>
-        // ===== سیستم دوزبانه =====
+        // ===== ترجمه‌ها =====
         const translations = {
             en: {
                 tagline: "From Zero to Summit",
@@ -296,11 +296,12 @@
             }
         };
 
-        let currentLang = 'en';
+        // ===== اعمال زبان ذخیره شده (قبل از هر چیز) =====
+        let currentLang = localStorage.getItem('lang') || 'en';
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'fa' : 'en';
-            const t = translations[currentLang];
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
 
             document.getElementById('tagline').textContent = t.tagline;
             document.getElementById('backBtn').textContent = t.backBtn;
@@ -312,22 +313,26 @@
             document.documentElement.lang = t.lang;
             document.documentElement.dir = t.dir;
 
-            if (currentLang === 'fa') {
+            if (lang === 'fa') {
                 document.body.classList.add('fa');
             } else {
                 document.body.classList.remove('fa');
             }
 
-            localStorage.setItem('lang', currentLang);
+            currentLang = lang;
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('lang');
-            if (savedLang && savedLang !== currentLang) {
-                toggleLanguage();
-            }
-        });
+        // اعمال زبان در لحظه لود صفحه
+        applyLanguage(currentLang);
 
+        // تابع تغییر زبان
+        function toggleLanguage() {
+            const newLang = currentLang === 'en' ? 'fa' : 'en';
+            localStorage.setItem('lang', newLang);
+            applyLanguage(newLang);
+        }
+
+        // منوی موبایل
         function toggleMenu() {
             document.getElementById('navMenu').classList.toggle('active');
         }
