@@ -75,12 +75,13 @@
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        /* Services Grid */
         .section-title {
             font-size: 2.5rem; text-align: center; margin-bottom: 50px;
             background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
+
+        /* Services Grid */
         .services-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px; margin-bottom: 120px;
@@ -104,44 +105,80 @@
         .service-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; }
         .service-desc { color: #aaaaaa; line-height: 1.6; font-size: 0.95rem; }
 
-        /* Pricing Section */
-        .pricing-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; margin-bottom: 120px;
+        /* Technologies Section */
+        .tech-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px; margin-bottom: 120px;
         }
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px);
-            border: 1px solid rgba(102, 126, 234, 0.2); border-radius: 20px;
-            padding: 40px 30px; text-align: center; transition: all 0.4s ease;
+        .tech-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 15px; padding: 30px 20px;
+            text-align: center; transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out both;
+        }
+        .tech-card:nth-child(1) { animation-delay: 0.1s; }
+        .tech-card:nth-child(2) { animation-delay: 0.2s; }
+        .tech-card:nth-child(3) { animation-delay: 0.3s; }
+        .tech-card:nth-child(4) { animation-delay: 0.4s; }
+        .tech-card:nth-child(5) { animation-delay: 0.5s; }
+        .tech-card:nth-child(6) { animation-delay: 0.6s; }
+        .tech-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: rgba(240, 147, 251, 0.6);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+        .tech-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .tech-name { font-size: 1rem; font-weight: 600; color: #ffffff; }
+
+        /* Process Section */
+        .process-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px; margin-bottom: 120px; position: relative;
+        }
+        .process-step {
+            text-align: center; padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 20px; transition: all 0.4s ease;
             position: relative;
         }
-        .pricing-card.featured {
-            border-color: #f093fb; background: rgba(240, 147, 251, 0.05);
-            transform: scale(1.05); box-shadow: 0 0 40px rgba(240, 147, 251, 0.15);
+        .process-step:hover {
+            transform: translateY(-10px);
+            border-color: rgba(240, 147, 251, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
         }
-        .pricing-card:hover { transform: translateY(-10px); }
-        .pricing-card.featured:hover { transform: scale(1.05) translateY(-10px); }
-        
-        .badge {
-            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+        .step-number {
+            width: 70px; height: 70px; margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; font-weight: 900; color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s ease;
         }
-        .plan-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
-        .plan-price { font-size: 2.5rem; font-weight: 900; margin-bottom: 30px; background: linear-gradient(135deg, #667eea 0%, #f093fb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .plan-price span { font-size: 1rem; color: #888; -webkit-text-fill-color: #888; }
-        .plan-features { list-style: none; margin-bottom: 30px; text-align: left; padding: 0 10px; }
-        body[dir="rtl"] .plan-features { text-align: right; }
-        .plan-features li { padding: 10px 0; color: #cccccc; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 10px; }
-        .plan-features li::before { content: '✓'; color: #667eea; font-weight: bold; }
-        
-        .plan-btn {
-            display: inline-block; padding: 12px 30px; border-radius: 50px;
-            background: rgba(102, 126, 234, 0.1); border: 1px solid rgba(102, 126, 234, 0.5);
-            color: #ffffff; text-decoration: none; font-weight: 600; transition: all 0.3s ease;
+        .process-step:hover .step-number { transform: scale(1.1) rotate(360deg); }
+        .step-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .step-desc { color: #aaaaaa; font-size: 0.95rem; line-height: 1.6; }
+
+        /* Why Choose Us */
+        .why-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; margin-bottom: 120px;
         }
-        .plan-btn:hover { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-color: transparent; }
-        .pricing-card.featured .plan-btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-color: transparent; }
+        .why-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 20px; padding: 40px 30px;
+            text-align: center; transition: all 0.4s ease;
+        }
+        .why-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(240, 147, 251, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+        .why-icon { font-size: 3rem; margin-bottom: 20px; display: inline-block; }
+        .why-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; }
+        .why-desc { color: #aaaaaa; line-height: 1.6; font-size: 0.95rem; }
 
         /* CTA Section */
         .cta-section {
@@ -175,8 +212,7 @@
             .page-title { font-size: 2.5rem; }
             .lang-switcher { top: 75px; right: 20px; }
             body[dir="rtl"] .lang-switcher { left: 20px; }
-            .pricing-card.featured { transform: scale(1); }
-            .pricing-card.featured:hover { transform: translateY(-10px); }
+            .section-title { font-size: 2rem; }
             .cta-title { font-size: 1.8rem; }
         }
     </style>
@@ -208,7 +244,7 @@
         <h2 class="section-title" id="servicesTitle">What We Offer</h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">💻</div>
+                <div class="service-icon"></div>
                 <h3 class="service-title" id="s1Title">Web Design</h3>
                 <p class="service-desc" id="s1Desc">Professional and modern website design tailored to your brand identity.</p>
             </div>
@@ -229,42 +265,82 @@
             </div>
         </div>
 
-        <!-- Pricing Section -->
-        <h2 class="section-title" id="pricingTitle">Simple Pricing</h2>
-        <div class="pricing-grid">
-            <!-- Plan 1 -->
-            <div class="pricing-card">
-                <h3 class="plan-name" id="p1Name">Starter</h3>
-                <div class="plan-price" id="p1Price">$500 <span>/ project</span></div>
-                <ul class="plan-features">
-                    <li id="p1F1">5 Pages Website</li>
-                    <li id="p1F2">Mobile Responsive</li>
-                    <li id="p1F3">Basic SEO</li>
-                </ul>
-                <a href="contact.html" class="plan-btn" id="p1Btn">Choose Plan</a>
+        <!-- Technologies Section -->
+        <h2 class="section-title" id="techTitle">Technologies We Use</h2>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <span class="tech-icon">⚡</span>
+                <div class="tech-name" id="tech1">HTML5</div>
             </div>
-            <!-- Plan 2 (Featured) -->
-            <div class="pricing-card featured">
-                <div class="badge" id="badge2">Most Popular</div>
-                <h3 class="plan-name" id="p2Name">Professional</h3>
-                <div class="plan-price" id="p2Price">$1000 <span>/ project</span></div>
-                <ul class="plan-features">
-                    <li id="p2F1">10 Pages Website</li>
-                    <li id="p2F2">Advanced SEO</li>
-                    <li id="p2F3">1 Month Free Support</li>
-                </ul>
-                <a href="contact.html" class="plan-btn" id="p2Btn">Choose Plan</a>
+            <div class="tech-card">
+                <span class="tech-icon">🎨</span>
+                <div class="tech-name" id="tech2">CSS3</div>
             </div>
-            <!-- Plan 3 -->
-            <div class="pricing-card">
-                <h3 class="plan-name" id="p3Name">Enterprise</h3>
-                <div class="plan-price" id="p3Price">Custom <span>/ project</span></div>
-                <ul class="plan-features">
-                    <li id="p3F1">Unlimited Pages</li>
-                    <li id="p3F2">E-commerce Ready</li>
-                    <li id="p3F3">6 Months Support</li>
-                </ul>
-                <a href="contact.html" class="plan-btn" id="p3Btn">Contact Us</a>
+            <div class="tech-card">
+                <span class="tech-icon">⚙️</span>
+                <div class="tech-name" id="tech3">JavaScript</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon">📱</span>
+                <div class="tech-name" id="tech4">Responsive</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon">🔧</span>
+                <div class="tech-name" id="tech5">WordPress</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon">🚀</span>
+                <div class="tech-name" id="tech6">SEO</div>
+            </div>
+        </div>
+
+        <!-- Process Section -->
+        <h2 class="section-title" id="processTitle">How We Work</h2>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3 class="step-title" id="p1Title">Consultation</h3>
+                <p class="step-desc" id="p1Desc">We listen to your needs and understand your business goals.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3 class="step-title" id="p2Title">Design</h3>
+                <p class="step-desc" id="p2Desc">We craft a unique visual identity and user experience.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3 class="step-title" id="p3Title">Development</h3>
+                <p class="step-desc" id="p3Desc">We bring the design to life with clean, robust code.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3 class="step-title" id="p4Title">Launch</h3>
+                <p class="step-desc" id="p4Desc">We deploy your site and ensure everything runs perfectly.</p>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <h2 class="section-title" id="whyTitle">Why Choose ZeroBoom?</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">🎯</div>
+                <h3 class="why-title" id="w1Title">Tailored Solutions</h3>
+                <p class="why-desc" id="w1Desc">Every project is unique. We customize our approach to fit your specific needs.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">⚡</div>
+                <h3 class="why-title" id="w2Title">Fast Delivery</h3>
+                <p class="why-desc" id="w2Desc">We respect your time and deliver high-quality results on schedule.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">💡</div>
+                <h3 class="why-title" id="w3Title">Creative Design</h3>
+                <p class="why-desc" id="w3Desc">We blend aesthetics with functionality to create stunning experiences.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"></div>
+                <h3 class="why-title" id="w4Title">Ongoing Support</h3>
+                <p class="why-desc" id="w4Desc">Our relationship doesn't end at launch. We're here for the long run.</p>
             </div>
         </div>
 
@@ -306,10 +382,18 @@
                 s2Title: "E-commerce", s2Desc: "Build a powerful online store with secure payment gateways.",
                 s3Title: "SEO Optimization", s3Desc: "Rank higher on Google and attract more organic traffic to your site.",
                 s4Title: "Support & Maintenance", s4Desc: "Keep your website secure, fast, and up-to-date with our monthly plans.",
-                pricingTitle: "Simple Pricing",
-                p1Name: "Starter", p1Price: "$500", p1F1: "5 Pages Website", p1F2: "Mobile Responsive", p1F3: "Basic SEO", p1Btn: "Choose Plan",
-                p2Name: "Professional", p2Price: "$1000", p2F1: "10 Pages Website", p2F2: "Advanced SEO", p2F3: "1 Month Free Support", p2Btn: "Choose Plan", badge2: "Most Popular",
-                p3Name: "Enterprise", p3Price: "Custom", p3F1: "Unlimited Pages", p3F2: "E-commerce Ready", p3F3: "6 Months Support", p3Btn: "Contact Us",
+                techTitle: "Technologies We Use",
+                tech1: "HTML5", tech2: "CSS3", tech3: "JavaScript", tech4: "Responsive", tech5: "WordPress", tech6: "SEO",
+                processTitle: "How We Work",
+                p1Title: "Consultation", p1Desc: "We listen to your needs and understand your business goals.",
+                p2Title: "Design", p2Desc: "We craft a unique visual identity and user experience.",
+                p3Title: "Development", p3Desc: "We bring the design to life with clean, robust code.",
+                p4Title: "Launch", p4Desc: "We deploy your site and ensure everything runs perfectly.",
+                whyTitle: "Why Choose ZeroBoom?",
+                w1Title: "Tailored Solutions", w1Desc: "Every project is unique. We customize our approach to fit your specific needs.",
+                w2Title: "Fast Delivery", w2Desc: "We respect your time and deliver high-quality results on schedule.",
+                w3Title: "Creative Design", w3Desc: "We blend aesthetics with functionality to create stunning experiences.",
+                w4Title: "Ongoing Support", w4Desc: "Our relationship doesn't end at launch. We're here for the long run.",
                 ctaTitle: "Ready to Grow Your Business?", ctaDesc: "Let's build something amazing together. Get a free consultation today and take your brand to the summit.", ctaBtn: "Start Your Project 🚀",
                 langText: "فارسی", navHome: "Home", navAbout: "About Us", navServices: "Services", navContact: "Contact Us",
                 chatbotTitle: "ZeroBoom Assistant", chatbotStatus: "Online", dir: "ltr", lang: "en"
@@ -321,11 +405,19 @@
                 s2Title: "فروشگاه اینترنتی", s2Desc: "ساخت یک فروشگاه آنلاین قدرتمند با درگاه‌های پرداخت امن.",
                 s3Title: "سئو و بهینه‌سازی", s3Desc: "رتبه بالاتر در گوگل و جذب ترافیک ارگانیک بیشتر به سایت شما.",
                 s4Title: "پشتیبانی و نگهداری", s4Desc: "حفظ امنیت، سرعت و به‌روزرسانی سایت شما با پلن‌های ماهانه.",
-                pricingTitle: "تعرفه‌های ساده",
-                p1Name: "پایه", p1Price: "۵ میلیون", p1F1: "سایت  صفحه‌ای", p1F2: "واکنش‌گرا (موبایل)", p1F3: "سئوی پایه", p1Btn: "انتخاب پلن",
-                p2Name: "حرفه‌ای", p2Price: "۱۰ میلیون", p2F1: "سایت ۰ صفحه‌ای", p2F2: "سئوی پیشرفته", p2F3: "۱ ماه پشتیبانی رایگان", p2Btn: "انتخاب پلن", badge2: "محبوب‌ترین",
-                p3Name: "سازمانی", p3Price: "توافقی", p3F1: "صفحات نامحدود", p3F2: "آماده فروشگاهی", p3F3: "۶ ماه پشتیبانی", p3Btn: "تماس با ما",
-                ctaTitle: "آماده رشد کسب‌وکار خود هستید؟", ctaDesc: "بیایید با هم یک چیز شگفت‌انگیز بسازیم. همین امروز مشاوره رایگان بگیرید و برند خود را به اوج برسانید.", ctaBtn: "شروع پروژه ",
+                techTitle: "تکنولوژی‌های مورد استفاده",
+                tech1: "HTML5", tech2: "CSS3", tech3: "جاوااسکریپت", tech4: "ریسپانسیو", tech5: "وردپرس", tech6: "سئو",
+                processTitle: "فرآیند کار ما",
+                p1Title: "مشاوره", p1Desc: "ما به نیازهای شما گوش می‌دهیم و اهداف کسب‌وکارتان را درک می‌کنیم.",
+                p2Title: "طراحی", p2Desc: "ما یک هویت بصری و تجربه کاربری منحصر به فرد خلق می‌کنیم.",
+                p3Title: "توسعه", p3Desc: "ما طراحی را با کدهای تمیز و قدرتمند به زندگی تبدیل می‌کنیم.",
+                p4Title: "راه‌اندازی", p4Desc: "سایت شما را منتشر می‌کنیم و از عملکرد بی‌نقص آن اطمینان حاصل می‌کنیم.",
+                whyTitle: "چرا زیروبام؟",
+                w1Title: "راه‌حل‌های سفارشی", w1Desc: "هر پروژه منحصر به فرد است. ما رویکرد خود را با نیازهای خاص شما تطبیق می‌دهیم.",
+                w2Title: "تحویل سریع", w2Desc: "ما به وقت شما احترام می‌گذاریم و نتایج با کیفیت را به موقع تحویل می‌دهیم.",
+                w3Title: "طراحی خلاقانه", w3Desc: "ما زیبایی‌شناسی را با عملکرد ترکیب می‌کنیم تا تجربه‌های شگفت‌انگیز بسازیم.",
+                w4Title: "پشتیبانی مداوم", w4Desc: "رابطه ما با راه‌اندازی تمام نمی‌شود. ما برای بلندمدت اینجا هستیم.",
+                ctaTitle: "آماده رشد کسب‌وکار خود هستید؟", ctaDesc: "بیایید با هم یک چیز شگفت‌انگیز بسازیم. همین امروز مشاوره رایگان بگیرید و برند خود را به اوج برسانید.", ctaBtn: "شروع پروژه 🚀",
                 langText: "English", navHome: "خانه", navAbout: "درباره ما", navServices: "خدمات", navContact: "تماس با ما",
                 chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین", dir: "rtl", lang: "fa"
             }
@@ -337,7 +429,7 @@
             const t = translations[lang];
             if (!t) return;
             
-            const ids = ['pageTitle', 'pageSubtitle', 'servicesTitle', 's1Title', 's1Desc', 's2Title', 's2Desc', 's3Title', 's3Desc', 's4Title', 's4Desc', 'pricingTitle', 'p1Name', 'p1Price', 'p1F1', 'p1F2', 'p1F3', 'p1Btn', 'p2Name', 'p2Price', 'p2F1', 'p2F2', 'p2F3', 'p2Btn', 'badge2', 'p3Name', 'p3Price', 'p3F1', 'p3F2', 'p3F3', 'p3Btn', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus'];
+            const ids = ['pageTitle', 'pageSubtitle', 'servicesTitle', 's1Title', 's1Desc', 's2Title', 's2Desc', 's3Title', 's3Desc', 's4Title', 's4Desc', 'techTitle', 'tech1', 'tech2', 'tech3', 'tech4', 'tech5', 'tech6', 'processTitle', 'p1Title', 'p1Desc', 'p2Title', 'p2Desc', 'p3Title', 'p3Desc', 'p4Title', 'p4Desc', 'whyTitle', 'w1Title', 'w1Desc', 'w2Title', 'w2Desc', 'w3Title', 'w3Desc', 'w4Title', 'w4Desc', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = t[id];
