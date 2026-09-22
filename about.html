@@ -17,29 +17,21 @@
         }
         body.fa { font-family: 'Vazirmatn', 'Tahoma', sans-serif; }
 
-        #bg-canvas {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%; z-index: 1;
-        }
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
         /* Navbar */
         .navbar {
-            position: fixed; top: 0; left: 0; width: 100%;
-            padding: 20px 50px;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 20px 50px;
             background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
-            z-index: 10; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3); z-index: 10;
+            display: flex; justify-content: space-between; align-items: center;
             animation: slideDown 0.8s ease-out;
         }
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .nav-logo {
             font-size: 1.5rem; font-weight: 900;
             background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-decoration: none;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none;
         }
         .nav-menu { display: flex; gap: 35px; list-style: none; }
         .nav-menu a {
@@ -47,17 +39,12 @@
             transition: all 0.3s ease; position: relative; padding: 5px 0;
         }
         .nav-menu a::after {
-            content: ''; position: absolute; bottom: 0; left: 0;
-            width: 0; height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%); transition: width 0.3s ease;
         }
         .nav-menu a:hover::after { width: 100%; }
         .nav-menu a:hover { color: #f093fb; }
-
-        .menu-toggle {
-            display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 20;
-        }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 20; }
         .menu-toggle span { width: 25px; height: 3px; background: #ffffff; border-radius: 3px; }
 
         /* Language Switcher */
@@ -66,27 +53,16 @@
             background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
             border: 1px solid rgba(102, 126, 234, 0.5); border-radius: 50px;
             padding: 8px 20px; color: #ffffff; font-weight: 600; font-size: 0.9rem;
-            cursor: pointer; transition: all 0.3s ease;
-            display: flex; align-items: center; gap: 8px;
-            animation: fadeIn 1s ease-out 0.5s both;
+            cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
         }
         body[dir="rtl"] .lang-switcher { right: auto; left: 30px; }
         .lang-switcher:hover {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: transparent; transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            border-color: transparent; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
 
         /* Main Container */
-        .container {
-            position: relative; z-index: 2;
-            max-width: 1200px; margin: 0 auto;
-            padding: 120px 20px 60px;
-        }
+        .container { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 120px 20px 60px; }
 
         .page-title {
             font-size: 3.5rem; font-weight: 900; text-align: center;
@@ -139,7 +115,7 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 20px; padding: 30px; text-align: center;
+            border-radius: 20px; padding: 40px 30px; text-align: center;
             transition: all 0.4s ease;
         }
         .feature-card:hover {
@@ -147,7 +123,11 @@
             border-color: rgba(240, 147, 251, 0.5);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
         }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .feature-icon { 
+            width: 80px; height: 80px; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .feature-icon svg { width: 60px; height: 60px; }
         .feature-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
         .feature-desc { color: #aaaaaa; line-height: 1.6; }
 
@@ -200,10 +180,7 @@
         .team-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 5px; }
         .team-role { color: #667eea; font-size: 0.9rem; margin-bottom: 15px; }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) {
             .navbar { padding: 15px 20px; }
@@ -228,9 +205,7 @@
 
     <nav class="navbar">
         <a href="index.html" class="nav-logo">ZeroBoom</a>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <ul class="nav-menu" id="navMenu">
             <li><a href="index.html" id="navHome">Home</a></li>
             <li><a href="about.html" id="navAbout">About Us</a></li>
@@ -240,7 +215,7 @@
     </nav>
 
     <button class="lang-switcher" onclick="toggleLanguage()">
-        <span>🌐</span>
+        <span></span>
         <span id="langText">فارسی</span>
     </button>
 
@@ -346,22 +321,43 @@
         <h2 class="section-title" id="whyTitle">Why Choose ZeroBoom?</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon"></div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                </div>
                 <h3 class="feature-title" id="f1Title">Modern Design</h3>
                 <p class="feature-desc" id="f1Desc">We create stunning, contemporary interfaces that capture your brand's essence and engage your audience.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
                 <h3 class="feature-title" id="f2Title">Blazing Fast</h3>
                 <p class="feature-desc" id="f2Desc">Performance is key. We optimize every line of code to ensure your site loads instantly on any device.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🌍</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
                 <h3 class="feature-title" id="f3Title">Global Ready</h3>
                 <p class="feature-desc" id="f3Desc">With built-in multilingual support, your website can easily reach both local and international audiences.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🛠️</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
                 <h3 class="feature-title" id="f4Title">Dedicated Support</h3>
                 <p class="feature-desc" id="f4Desc">We are with you every step of the way, providing ongoing support to keep your site running smoothly.</p>
             </div>
@@ -423,7 +419,7 @@
     </button>
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
-            <div class="chatbot-avatar">🤖</div>
+            <div class="chatbot-avatar"></div>
             <div class="chatbot-title"><h3 id="chatbotTitle">ZeroBoom Assistant</h3><p id="chatbotStatus">Online</p></div>
             <button class="chatbot-close" onclick="toggleChatbot()">×</button>
         </div>
