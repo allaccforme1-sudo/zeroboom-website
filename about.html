@@ -117,8 +117,19 @@
             border: 1px solid rgba(102, 126, 234, 0.3);
             border-radius: 20px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 5rem;
             backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        .story-visual img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Why Choose Us */
@@ -178,9 +189,19 @@
         }
         .team-card:hover { transform: translateY(-5px); border-color: rgba(240, 147, 251, 0.5); }
         .team-avatar {
-            width: 100px; height: 100px; margin: 0 auto 20px;
+            width: 120px; height: 120px; margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(102, 126, 234, 0.5);
             background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-avatar-placeholder {
             font-size: 2.5rem; color: white; font-weight: 900;
         }
         .team-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 5px; }
@@ -226,7 +247,7 @@
     </nav>
 
     <button class="lang-switcher" onclick="toggleLanguage()">
-        <span>🌐</span>
+        <span></span>
         <span id="langText">فارسی</span>
     </button>
 
@@ -241,7 +262,10 @@
                 <p id="storyP1">ZeroBoom was born from a simple belief: every business, no matter how small, deserves a world-class digital presence. We started this journey to bridge the gap between complex technology and beautiful, user-friendly design.</p>
                 <p id="storyP2">Our mission is to help you grow from zero to your summit. We don't just build websites; we build digital experiences that drive results, engage users, and elevate your brand.</p>
             </div>
-            <div class="story-visual">🚀</div>
+            <div class="story-visual">
+                <!-- لوگوی ZeroBoom -->
+                <img src="https://image.qwenlm.ai/public_source/ea87b28a-85d4-496f-8fa8-48d2cc0396ec/1b2af91b3-260c-4f88-82b7-cfcaa1bff9994040.png" alt="ZeroBoom Logo">
+            </div>
         </div>
 
         <!-- Why Choose Us -->
@@ -263,7 +287,7 @@
                 <p class="feature-desc" id="f3Desc">With built-in multilingual support, your website can easily reach both local and international audiences.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
+                <div class="feature-icon">🛠️</div>
                 <h3 class="feature-title" id="f4Title">Dedicated Support</h3>
                 <p class="feature-desc" id="f4Desc">We are with you every step of the way, providing ongoing support to keep your site running smoothly.</p>
             </div>
@@ -298,12 +322,18 @@
         <h2 class="section-title" id="teamTitle">Meet The Team</h2>
         <div class="team-grid">
             <div class="team-card">
-                <div class="team-avatar">A</div>
+                <div class="team-avatar">
+                    <!-- عکس آیدین - بعداً جایگزین میشه -->
+                    <span class="team-avatar-placeholder">A</span>
+                </div>
                 <h3 class="team-name">Aydin</h3>
                 <p class="team-role" id="role1">Co-Founder & Developer</p>
             </div>
             <div class="team-card">
-                <div class="team-avatar">B</div>
+                <div class="team-avatar">
+                    <!-- عکس بهنام - بعداً جایگزین میشه -->
+                    <span class="team-avatar-placeholder">B</span>
+                </div>
                 <h3 class="team-name">Behnam</h3>
                 <p class="team-role" id="role2">Co-Founder & Developer</p>
             </div>
