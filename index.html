@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeroBoom | From Zero to Summit</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="chatbot.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', 'Arial', sans-serif;
@@ -19,79 +16,43 @@
             height: 100vh;
             transition: font-family 0.3s ease;
         }
-
-        body.fa {
-            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
-        }
+        body.fa { font-family: 'Vazirmatn', 'Tahoma', sans-serif; }
 
         #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 1;
         }
 
-        /* دکمه تغییر زبان */
         .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(102, 126, 234, 0.5);
-            border-radius: 50px;
-            padding: 8px 20px;
-            color: #ffffff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            position: fixed; top: 20px; right: 20px; z-index: 100;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.5); border-radius: 50px;
+            padding: 8px 20px; color: #ffffff; font-weight: 600;
+            cursor: pointer; transition: all 0.3s ease;
+            display: flex; align-items: center; gap: 8px;
         }
-
-        body[dir="rtl"] .lang-switcher {
-            right: auto;
-            left: 20px;
-        }
-
+        body[dir="rtl"] .lang-switcher { right: auto; left: 20px; }
         .lang-switcher:hover {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: transparent;
-            transform: translateY(-2px);
+            border-color: transparent; transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .lang-switcher .flag {
-            font-size: 1.2rem;
-        }
-
         .hero-container {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            padding: 20px;
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            height: 100vh; text-align: center; padding: 20px;
         }
 
         .logo {
-            font-size: 5rem;
-            font-weight: 900;
+            font-size: 5rem; font-weight: 900;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
             background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: gradientShift 5s ease infinite, logoGlow 3s ease-in-out infinite, float 6s ease-in-out infinite;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
+            letter-spacing: 3px; margin-bottom: 20px;
         }
 
         @keyframes gradientShift {
@@ -99,60 +60,36 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         @keyframes logoGlow {
             0%, 100% { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
             50% { filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8)); }
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
 
         .tagline {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 40px;
-            opacity: 0.9;
+            font-size: 1.5rem; color: #ffffff;
+            margin-bottom: 40px; opacity: 0.9;
             animation: fadeInUp 1s ease-out 0.5s both;
         }
 
         .cta-button {
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
+            padding: 15px 40px; font-size: 1.1rem; font-weight: 600;
+            color: #ffffff; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none; border-radius: 50px; cursor: pointer;
+            transition: all 0.3s ease; text-decoration: none;
+            display: inline-block; position: relative; overflow: hidden;
             animation: fadeInUp 1s ease-out 1s both;
         }
-
         .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 0; height: 0; border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s;
         }
-
-        .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
+        .cta-button:hover::before { width: 300px; height: 300px; }
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
@@ -173,9 +110,8 @@
 <body>
     <canvas id="particles-canvas"></canvas>
 
-    <!-- دکمه تغییر زبان -->
     <button class="lang-switcher" onclick="toggleLanguage()">
-        <span class="flag">🌐</span>
+        <span>🌐</span>
         <span id="langText">فارسی</span>
     </button>
 
@@ -185,72 +121,95 @@
         <a href="contact.html" class="cta-button" id="ctaBtn">Start Your Project</a>
     </div>
 
+    <!-- چت‌بات -->
+    <button class="chatbot-toggle" onclick="toggleChatbot()">
+        <svg viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
+            <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+        </svg>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">🤖</div>
+            <div class="chatbot-title">
+                <h3 id="chatbotTitle">ZeroBoom Assistant</h3>
+                <p id="chatbotStatus">Online</p>
+            </div>
+            <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button onclick="handleUserInput()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
     <script>
-        // ===== سیستم دوزبانه =====
         const translations = {
             en: {
                 tagline: "From Zero to Summit",
                 ctaBtn: "Start Your Project",
                 langText: "فارسی",
-                dir: "ltr",
-                lang: "en"
+                chatbotTitle: "ZeroBoom Assistant",
+                chatbotStatus: "Online",
+                dir: "ltr", lang: "en"
             },
             fa: {
                 tagline: "از صفر تا بام",
                 ctaBtn: "شروع پروژه",
                 langText: "English",
-                dir: "rtl",
-                lang: "fa"
+                chatbotTitle: "دستیار زیروبام",
+                chatbotStatus: "آنلاین",
+                dir: "rtl", lang: "fa"
             }
         };
 
-        let currentLang = 'en';
+        let currentLang = localStorage.getItem('lang') || 'en';
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'fa' : 'en';
-            const t = translations[currentLang];
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
 
             document.getElementById('tagline').textContent = t.tagline;
             document.getElementById('ctaBtn').textContent = t.ctaBtn;
             document.getElementById('langText').textContent = t.langText;
+            document.getElementById('chatbotTitle').textContent = t.chatbotTitle;
+            document.getElementById('chatbotStatus').textContent = t.chatbotStatus;
             document.documentElement.lang = t.lang;
             document.documentElement.dir = t.dir;
 
-            if (currentLang === 'fa') {
-                document.body.classList.add('fa');
-            } else {
-                document.body.classList.remove('fa');
-            }
+            if (lang === 'fa') document.body.classList.add('fa');
+            else document.body.classList.remove('fa');
 
-            // ذخیره زبان در حافظه مرورگر
-            localStorage.setItem('lang', currentLang);
+            currentLang = lang;
+            updateChatbotLanguage(lang);
         }
 
-        // بازیابی زبان ذخیره شده
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('lang');
-            if (savedLang && savedLang !== currentLang) {
-                toggleLanguage();
-            }
-        });
+        function toggleLanguage() {
+            const newLang = currentLang === 'en' ? 'fa' : 'en';
+            localStorage.setItem('lang', newLang);
+            applyLanguage(newLang);
+        }
 
-        // ===== انیمیشن ذرات =====
+        applyLanguage(currentLang);
+
+        // انیمیشن ذرات
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 
         const mouse = { x: null, y: null, radius: 150 };
-
         window.addEventListener('mousemove', (event) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
+            mouse.x = event.x; mouse.y = event.y;
         });
-
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         });
 
         class Particle {
@@ -262,19 +221,14 @@
                 this.radius = Math.random() * 2 + 1;
                 this.color = `rgba(102, 126, 234, ${Math.random() * 0.5 + 0.3})`;
             }
-
             update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
+                this.x += this.vx; this.y += this.vy;
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
                 if (mouse.x !== null && mouse.y !== null) {
-                    const dx = mouse.x - this.x;
-                    const dy = mouse.y - this.y;
+                    const dx = mouse.x - this.x; const dy = mouse.y - this.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-
                     if (distance < mouse.radius) {
                         const force = (mouse.radius - distance) / mouse.radius;
                         this.x -= (dx / distance) * force * 2;
@@ -282,21 +236,15 @@
                     }
                 }
             }
-
             draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color; ctx.fill();
             }
         }
 
         const particles = [];
         const particleCount = window.innerWidth < 768 ? 50 : 100;
-
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
 
         function drawLines() {
             for (let i = 0; i < particles.length; i++) {
@@ -304,14 +252,12 @@
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-
                     if (distance < 150) {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.strokeStyle = `rgba(102, 126, 234, ${0.2 * (1 - distance / 150)})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
+                        ctx.lineWidth = 0.5; ctx.stroke();
                     }
                 }
             }
@@ -319,16 +265,10 @@
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
+            particles.forEach(p => { p.update(); p.draw(); });
             drawLines();
             requestAnimationFrame(animate);
         }
-
         animate();
     </script>
 </body>
