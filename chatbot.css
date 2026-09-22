@@ -139,18 +139,9 @@ body[dir="rtl"] .chatbot-window {
     gap: 15px;
 }
 
-.chatbot-messages::-webkit-scrollbar {
-    width: 6px;
-}
-
-.chatbot-messages::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.chatbot-messages::-webkit-scrollbar-thumb {
-    background: rgba(102, 126, 234, 0.5);
-    border-radius: 3px;
-}
+.chatbot-messages::-webkit-scrollbar { width: 6px; }
+.chatbot-messages::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+.chatbot-messages::-webkit-scrollbar-thumb { background: rgba(102, 126, 234, 0.5); border-radius: 3px; }
 
 .message {
     max-width: 80%;
@@ -159,6 +150,7 @@ body[dir="rtl"] .chatbot-window {
     font-size: 0.9rem;
     line-height: 1.5;
     animation: messageIn 0.3s ease-out;
+    white-space: pre-line;
 }
 
 @keyframes messageIn {
@@ -289,16 +281,12 @@ body[dir="rtl"] .chatbot-window {
         border-radius: 0;
         max-width: 100%;
     }
-    body[dir="rtl"] .chatbot-window {
-        left: 0;
-    }
+    body[dir="rtl"] .chatbot-window { left: 0; }
     .chatbot-toggle {
         bottom: 20px;
         right: 20px;
         width: 50px;
         height: 50px;
     }
-    body[dir="rtl"] .chatbot-toggle {
-        left: 20px;
-    }
+    body[dir="rtl"] .chatbot-toggle { left: 20px; }
 }
