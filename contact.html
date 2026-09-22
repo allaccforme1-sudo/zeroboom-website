@@ -12,33 +12,26 @@
         body {
             font-family: 'Segoe UI', 'Arial', sans-serif;
             background: #0a0a0a; color: #ffffff;
-            min-height: 100vh; overflow: hidden;
+            min-height: 100vh; overflow-x: hidden;
             transition: font-family 0.3s ease;
         }
         body.fa { font-family: 'Vazirmatn', 'Tahoma', sans-serif; }
 
-        #bg-canvas {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%; z-index: 1;
-        }
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
+        /* Navbar */
         .navbar {
-            position: fixed; top: 0; left: 0; width: 100%;
-            padding: 20px 50px;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 20px 50px;
             background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
-            z-index: 10; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3); z-index: 10;
+            display: flex; justify-content: space-between; align-items: center;
             animation: slideDown 0.8s ease-out;
         }
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .nav-logo {
             font-size: 1.5rem; font-weight: 900;
             background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-decoration: none;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none;
         }
         .nav-menu { display: flex; gap: 35px; list-style: none; }
         .nav-menu a {
@@ -46,46 +39,37 @@
             transition: all 0.3s ease; position: relative; padding: 5px 0;
         }
         .nav-menu a::after {
-            content: ''; position: absolute; bottom: 0; left: 0;
-            width: 0; height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%); transition: width 0.3s ease;
         }
         .nav-menu a:hover::after { width: 100%; }
         .nav-menu a:hover { color: #f093fb; }
-
-        .menu-toggle {
-            display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 20;
-        }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 20; }
         .menu-toggle span { width: 25px; height: 3px; background: #ffffff; border-radius: 3px; }
 
+        /* Language Switcher */
         .lang-switcher {
             position: fixed; top: 85px; right: 30px; z-index: 100;
             background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
             border: 1px solid rgba(102, 126, 234, 0.5); border-radius: 50px;
             padding: 8px 20px; color: #ffffff; font-weight: 600; font-size: 0.9rem;
-            cursor: pointer; transition: all 0.3s ease;
-            display: flex; align-items: center; gap: 8px;
+            cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
             animation: fadeIn 1s ease-out 0.5s both;
         }
         body[dir="rtl"] .lang-switcher { right: auto; left: 30px; }
         .lang-switcher:hover {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: transparent; transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            border-color: transparent; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .container {
+        /* Hero Section */
+        .hero {
             position: relative; z-index: 2;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
             min-height: 100vh; text-align: center; padding: 20px;
         }
-
         .logo {
             font-size: 6rem; font-weight: 900;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
@@ -94,34 +78,104 @@
             animation: gradientShift 5s ease infinite, logoGlow 3s ease-in-out infinite;
             letter-spacing: 3px; margin-bottom: 20px;
         }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes logoGlow { 0%, 100% { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); } 50% { filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8)); } }
+
+        .tagline { font-size: 1.8rem; color: #ffffff; margin-bottom: 40px; opacity: 0.9; }
+
+        .scroll-indicator {
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+            animation: bounce 2s infinite;
         }
-        @keyframes logoGlow {
-            0%, 100% { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
-            50% { filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8)); }
+        .scroll-indicator svg { width: 30px; height: 30px; stroke: #667eea; }
+        @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
+
+        /* Knowledge Section */
+        .knowledge-section {
+            position: relative; z-index: 2;
+            max-width: 1200px; margin: 0 auto; padding: 80px 20px;
+        }
+        .section-title {
+            font-size: 2.5rem; text-align: center; margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .section-subtitle {
+            text-align: center; color: #aaaaaa; font-size: 1.1rem;
+            margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;
         }
 
-        .tagline {
-            font-size: 1.8rem; color: #ffffff;
-            margin-bottom: 40px; opacity: 0.9;
+        .knowledge-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .back-button {
-            padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(102, 126, 234, 0.5); border-radius: 50px;
-            color: #667eea; text-decoration: none; font-weight: 600;
-            transition: all 0.3s ease;
+        .knowledge-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 20px;
+            padding: 35px 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .back-button:hover {
+        .knowledge-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #f093fb 100%);
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .knowledge-card:hover::before { transform: scaleX(1); }
+        .knowledge-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(240, 147, 251, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .knowledge-icon {
+            width: 70px; height: 70px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(240, 147, 251, 0.2) 100%);
+            border-radius: 15px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .knowledge-card:hover .knowledge-icon { transform: rotate(10deg) scale(1.1); }
+        .knowledge-icon svg { width: 40px; height: 40px; }
+
+        .knowledge-title {
+            font-size: 1.4rem; font-weight: 700; margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .knowledge-desc {
+            color: #aaaaaa; line-height: 1.7; font-size: 0.95rem;
+        }
+
+        /* CTA Bottom */
+        .cta-bottom {
+            position: relative; z-index: 2;
+            max-width: 900px; margin: 40px auto 80px; padding: 0 20px;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(240, 147, 251, 0.15) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 25px; padding: 50px 40px;
+            text-align: center; backdrop-filter: blur(10px);
+        }
+        .cta-title { font-size: 2rem; font-weight: 900; margin-bottom: 15px; }
+        .cta-desc { font-size: 1.1rem; color: #cccccc; margin-bottom: 30px; }
+        .cta-btn {
+            display: inline-block; padding: 15px 40px; font-size: 1.1rem; font-weight: 700;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff; border-color: transparent;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            color: white; text-decoration: none; border-radius: 50px;
+            transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
+        .cta-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6); }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) {
             .navbar { padding: 15px 20px; }
@@ -138,6 +192,10 @@
             .tagline { font-size: 1.3rem; }
             .lang-switcher { top: 75px; right: 20px; font-size: 0.85rem; }
             body[dir="rtl"] .lang-switcher { left: 20px; }
+            .section-title { font-size: 2rem; }
+            .knowledge-grid { grid-template-columns: 1fr; }
+            .cta-title { font-size: 1.5rem; }
+            .cta-box { padding: 35px 25px; }
         }
     </style>
 </head>
@@ -146,9 +204,7 @@
 
     <nav class="navbar">
         <a href="index.html" class="nav-logo">ZeroBoom</a>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <ul class="nav-menu" id="navMenu">
             <li><a href="index.html" id="navHome">Home</a></li>
             <li><a href="about.html" id="navAbout">About Us</a></li>
@@ -162,44 +218,125 @@
         <span id="langText">فارسی</span>
     </button>
 
-    <div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
         <h1 class="logo">ZeroBoom</h1>
         <p class="tagline" id="tagline">From Zero to Summit</p>
-        <a href="index.html" class="back-button" id="backBtn">← Back to Home</a>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
     </div>
 
-    <!-- دکمه تلگرام - سمت راست -->
+    <!-- Knowledge Section -->
+    <div class="knowledge-section">
+        <h2 class="section-title" id="knowledgeTitle">What We Work With</h2>
+        <p class="section-subtitle" id="knowledgeSubtitle">A brief look at the technologies and concepts that power modern websites</p>
+
+        <div class="knowledge-grid">
+            <!-- JavaScript -->
+            <div class="knowledge-card">
+                <div class="knowledge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
+                <h3 class="knowledge-title" id="jsTitle">JavaScript</h3>
+                <p class="knowledge-desc" id="jsDesc">The programming language that brings websites to life. It creates interactive elements, animations, and dynamic content that respond to user actions in real-time.</p>
+            </div>
+
+            <!-- SEO -->
+            <div class="knowledge-card">
+                <div class="knowledge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                </div>
+                <h3 class="knowledge-title" id="seoTitle">SEO</h3>
+                <p class="knowledge-desc" id="seoDesc">Search Engine Optimization helps your website rank higher on Google. Through smart techniques, we make sure your business gets found by the right people at the right time.</p>
+            </div>
+
+            <!-- HTML & CSS -->
+            <div class="knowledge-card">
+                <div class="knowledge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                </div>
+                <h3 class="knowledge-title" id="htmlTitle">HTML & CSS</h3>
+                <p class="knowledge-desc" id="htmlDesc">The foundation of every website. HTML builds the structure while CSS styles it beautifully. Together, they create the visual experience your visitors see and interact with.</p>
+            </div>
+
+            <!-- Responsive Design -->
+            <div class="knowledge-card">
+                <div class="knowledge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
+                <h3 class="knowledge-title" id="responsiveTitle">Responsive Design</h3>
+                <p class="knowledge-desc" id="responsiveDesc">Websites that look perfect on every device - from phones to desktops. Your site automatically adapts its layout to provide the best experience for every user.</p>
+            </div>
+
+            <!-- WordPress -->
+            <div class="knowledge-card">
+                <div class="knowledge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h3 class="knowledge-title" id="wpTitle">WordPress</h3>
+                <p class="knowledge-desc" id="wpDesc">The world's most popular content management system. It powers over 40% of all websites and makes it easy to manage your content without any coding knowledge.</p>
+            </div>
+
+            <!-- UI/UX -->
+            <div class="knowledge-card">
+                <div class="knowledge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
+                <h3 class="knowledge-title" id="uxTitle">UI/UX Design</h3>
+                <p class="knowledge-desc" id="uxDesc">User Interface and User Experience design focuses on making websites beautiful AND easy to use. Great design isn't just about looks - it's about how users feel.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Bottom -->
+    <div class="cta-bottom">
+        <div class="cta-box">
+            <h2 class="cta-title" id="ctaTitle">Ready to Learn More?</h2>
+            <p class="cta-desc" id="ctaDesc">We're here to help you understand what your business needs. Get in touch for a free consultation.</p>
+            <a href="https://t.me/Zerooboom" target="_blank" class="cta-btn" id="ctaBtn">Talk to Us on Telegram ️</a>
+        </div>
+    </div>
+
+    <!-- Telegram & Chatbot -->
     <a href="https://t.me/Zerooboom" target="_blank" class="telegram-toggle" title="Contact us on Telegram">
-        <svg viewBox="0 0 24 24">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
     </a>
-
-    <!-- دکمه چت‌بات - سمت چپ -->
     <button class="chatbot-toggle" onclick="toggleChatbot()">
-        <svg viewBox="0 0 24 24">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
-            <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
     </button>
-
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
-            <div class="chatbot-avatar"></div>
-            <div class="chatbot-title">
-                <h3 id="chatbotTitle">ZeroBoom Assistant</h3>
-                <p id="chatbotStatus">Online</p>
-            </div>
+            <div class="chatbot-avatar">🤖</div>
+            <div class="chatbot-title"><h3 id="chatbotTitle">ZeroBoom Assistant</h3><p id="chatbotStatus">Online</p></div>
             <button class="chatbot-close" onclick="toggleChatbot()">×</button>
         </div>
         <div class="chatbot-messages" id="chatbotMessages"></div>
         <div class="chatbot-input">
             <input type="text" id="chatbotInput" placeholder="Type your message...">
-            <button onclick="handleUserInput()">
-                <svg viewBox="0 0 24 24">
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                </svg>
-            </button>
+            <button onclick="handleUserInput()"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
         </div>
     </div>
 
@@ -208,7 +345,23 @@
         const translations = {
             en: {
                 tagline: "From Zero to Summit",
-                backBtn: "← Back to Home",
+                knowledgeTitle: "What We Work With",
+                knowledgeSubtitle: "A brief look at the technologies and concepts that power modern websites",
+                jsTitle: "JavaScript",
+                jsDesc: "The programming language that brings websites to life. It creates interactive elements, animations, and dynamic content that respond to user actions in real-time.",
+                seoTitle: "SEO",
+                seoDesc: "Search Engine Optimization helps your website rank higher on Google. Through smart techniques, we make sure your business gets found by the right people at the right time.",
+                htmlTitle: "HTML & CSS",
+                htmlDesc: "The foundation of every website. HTML builds the structure while CSS styles it beautifully. Together, they create the visual experience your visitors see and interact with.",
+                responsiveTitle: "Responsive Design",
+                responsiveDesc: "Websites that look perfect on every device - from phones to desktops. Your site automatically adapts its layout to provide the best experience for every user.",
+                wpTitle: "WordPress",
+                wpDesc: "The world's most popular content management system. It powers over 40% of all websites and makes it easy to manage your content without any coding knowledge.",
+                uxTitle: "UI/UX Design",
+                uxDesc: "User Interface and User Experience design focuses on making websites beautiful AND easy to use. Great design isn't just about looks - it's about how users feel.",
+                ctaTitle: "Ready to Learn More?",
+                ctaDesc: "We're here to help you understand what your business needs. Get in touch for a free consultation.",
+                ctaBtn: "Talk to Us on Telegram ️",
                 langText: "فارسی",
                 navHome: "Home", navAbout: "About Us", navServices: "Services", navContact: "Contact Us",
                 chatbotTitle: "ZeroBoom Assistant", chatbotStatus: "Online",
@@ -216,7 +369,23 @@
             },
             fa: {
                 tagline: "از صفر تا بام",
-                backBtn: "→ بازگشت به خانه",
+                knowledgeTitle: "آنچه با آن کار می‌کنیم",
+                knowledgeSubtitle: "نگاهی کوتاه به فناوری‌ها و مفاهیمی که وب‌سایت‌های مدرن را می‌سازند",
+                jsTitle: "جاوااسکریپت",
+                jsDesc: "زبان برنامه‌نویسی که به وب‌سایت‌ها جان می‌بخشد. این زبان عناصر تعاملی، انیمیشن‌ها و محتوای پویا ایجاد می‌کند که به اقدامات کاربر در زمان واقعی پاسخ می‌دهند.",
+                seoTitle: "سئو (SEO)",
+                seoDesc: "بهینه‌سازی موتور جستجو به وب‌سایت شما کمک می‌کند تا رتبه بالاتری در گوگل داشته باشد. با تکنیک‌های هوشمند، مطمئن می‌شویم کسب‌وکار شما در زمان مناسب توسط افراد مناسب پیدا شود.",
+                htmlTitle: "HTML و CSS",
+                htmlDesc: "پایه و اساس هر وب‌سایت. HTML ساختار را می‌سازد و CSS آن را زیبا استایل می‌دهد. با هم، تجربه بصری‌ای را ایجاد می‌کنند که بازدیدکنندگان شما می‌بینند و با آن تعامل می‌کنند.",
+                responsiveTitle: "طراحی واکنش‌گرا",
+                responsiveDesc: "وب‌سایت‌هایی که در هر دستگاهی - از موبایل تا دسکتاپ - عالی به نظر می‌رسند. سایت شما به طور خودکار چیدمان خود را برای بهترین تجربه کاربری تطبیق می‌دهد.",
+                wpTitle: "وردپرس",
+                wpDesc: "محبوب‌ترین سیستم مدیریت محتوا در جهان. بیش از ۴۰٪ وب‌سایت‌های دنیا با وردپرس ساخته شده‌اند و مدیریت محتوا را بدون نیاز به کدنویسی آسان می‌کنند.",
+                uxTitle: "طراحی UI/UX",
+                uxDesc: "طراحی رابط کاربری و تجربه کاربری بر زیبا و آسان کردن وب‌سایت‌ها تمرکز دارد. طراحی عالی فقط درباره ظاهر نیست - درباره احساس کاربران است.",
+                ctaTitle: "آماده یادگیری بیشتر هستید؟",
+                ctaDesc: "ما اینجا هستیم تا به شما کمک کنیم بفهمید کسب‌وکارتان به چه چیزی نیاز دارد. برای مشاوره رایگان با ما تماس بگیرید.",
+                ctaBtn: "گفتگو در تلگرام ️",
                 langText: "English",
                 navHome: "خانه", navAbout: "درباره ما", navServices: "خدمات", navContact: "تماس با ما",
                 chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین",
@@ -231,7 +400,17 @@
             if (!t) return;
 
             document.getElementById('tagline').textContent = t.tagline;
-            document.getElementById('backBtn').textContent = t.backBtn;
+            document.getElementById('knowledgeTitle').textContent = t.knowledgeTitle;
+            document.getElementById('knowledgeSubtitle').textContent = t.knowledgeSubtitle;
+            document.getElementById('jsTitle').textContent = t.jsTitle; document.getElementById('jsDesc').textContent = t.jsDesc;
+            document.getElementById('seoTitle').textContent = t.seoTitle; document.getElementById('seoDesc').textContent = t.seoDesc;
+            document.getElementById('htmlTitle').textContent = t.htmlTitle; document.getElementById('htmlDesc').textContent = t.htmlDesc;
+            document.getElementById('responsiveTitle').textContent = t.responsiveTitle; document.getElementById('responsiveDesc').textContent = t.responsiveDesc;
+            document.getElementById('wpTitle').textContent = t.wpTitle; document.getElementById('wpDesc').textContent = t.wpDesc;
+            document.getElementById('uxTitle').textContent = t.uxTitle; document.getElementById('uxDesc').textContent = t.uxDesc;
+            document.getElementById('ctaTitle').textContent = t.ctaTitle;
+            document.getElementById('ctaDesc').textContent = t.ctaDesc;
+            document.getElementById('ctaBtn').textContent = t.ctaBtn;
             document.getElementById('langText').textContent = t.langText;
             document.getElementById('navHome').textContent = t.navHome;
             document.getElementById('navAbout').textContent = t.navAbout;
@@ -257,18 +436,15 @@
             applyLanguage(newLang);
         }
 
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => document.getElementById('navMenu').classList.remove('active'));
         });
 
-        // انیمیشن پس‌زمینه
+        // Background Animation
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-
         const orbCenter = { x: canvas.width * 0.35, y: canvas.height * 0.5 };
         const particles = [];
         const particleCount = window.innerWidth < 768 ? 60 : 120;
@@ -296,9 +472,7 @@
         function drawOrb() {
             orbAngle += 0.02;
             const gradient = ctx.createRadialGradient(orbCenter.x, orbCenter.y, 0, orbCenter.x, orbCenter.y, 120);
-            gradient.addColorStop(0, 'rgba(102, 126, 234, 0.4)');
-            gradient.addColorStop(0.5, 'rgba(118, 75, 162, 0.2)');
-            gradient.addColorStop(1, 'rgba(102, 126, 234, 0)');
+            gradient.addColorStop(0, 'rgba(102, 126, 234, 0.4)'); gradient.addColorStop(0.5, 'rgba(118, 75, 162, 0.2)'); gradient.addColorStop(1, 'rgba(102, 126, 234, 0)');
             ctx.beginPath(); ctx.arc(orbCenter.x, orbCenter.y, 120, 0, Math.PI * 2); ctx.fillStyle = gradient; ctx.fill();
             ctx.beginPath(); ctx.arc(orbCenter.x, orbCenter.y, 80, 0, Math.PI * 2); ctx.strokeStyle = 'rgba(102, 126, 234, 0.5)'; ctx.lineWidth = 3; ctx.stroke();
             ctx.beginPath(); ctx.arc(orbCenter.x, orbCenter.y, 90, orbAngle, orbAngle + Math.PI); ctx.strokeStyle = 'rgba(240, 147, 251, 0.7)'; ctx.lineWidth = 2; ctx.stroke();
