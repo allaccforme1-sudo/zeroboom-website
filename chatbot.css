@@ -1,22 +1,8 @@
-/* ===== دکمه‌های شناور (چت‌بات + تلگرام) ===== */
-.floating-buttons {
+/* دکمه شناور چت‌بات - سمت چپ */
+.chatbot-toggle {
     position: fixed;
     bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-body[dir="rtl"] .floating-buttons {
-    right: auto;
     left: 30px;
-}
-
-/* دکمه چت‌بات */
-.chatbot-toggle {
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -24,18 +10,22 @@ body[dir="rtl"] .floating-buttons {
     border: none;
     cursor: pointer;
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
     animation: pulse 2s infinite;
-    position: relative;
+}
+
+body[dir="rtl"] .chatbot-toggle {
+    left: auto;
+    right: 30px;
 }
 
 .chatbot-toggle:hover {
     transform: scale(1.1);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
-    animation: none;
 }
 
 .chatbot-toggle svg {
@@ -44,8 +34,16 @@ body[dir="rtl"] .floating-buttons {
     fill: white;
 }
 
-/* دکمه تلگرام */
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); }
+    50% { box-shadow: 0 10px 40px rgba(102, 126, 234, 0.7); }
+}
+
+/* دکمه تلگرام - سمت راست */
 .telegram-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, #0088cc 0%, #00a8e6 100%);
@@ -53,15 +51,300 @@ body[dir="rtl"] .floating-buttons {
     border: none;
     cursor: pointer;
     box-shadow: 0 10px 30px rgba(0, 136, 204, 0.4);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
     animation: pulseTelegram 2s infinite;
-    position: relative;
     text-decoration: none;
+}
+
+body[dir="rtl"] .telegram-toggle {
+    right: auto;
+    left: 30px;
 }
 
 .telegram-toggle:hover {
     transform: scale(1.1);
-    box-shadow: 0 15px 4
+    box-shadow: 0 15px 40px rgba(0, 136, 204, 0.6);
+}
+
+.telegram-toggle svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+@keyframes pulseTelegram {
+    0%, 100% { box-shadow: 0 10px 30px rgba(0, 136, 204, 0.4); }
+    50% { box-shadow: 0 10px 40px rgba(0, 136, 204, 0.7); }
+}
+
+/* پنجره چت */
+.chatbot-window {
+    position: fixed;
+    bottom: 100px;
+    left: 30px;
+    width: 380px;
+    max-width: 90vw;
+    height: 500px;
+    max-height: 80vh;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s ease-out;
+}
+
+body[dir="rtl"] .chatbot-window {
+    left: auto;
+    right: 30px;
+}
+
+.chatbot-window.active {
+    display: flex;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* هدر چت‌بات */
+.chatbot-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chatbot-avatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.chatbot-title {
+    flex: 1;
+}
+
+.chatbot-title h3 {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.chatbot-title p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-close:hover {
+    transform: rotate(90deg);
+}
+
+/* پیام‌ها */
+.chatbot-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chatbot-messages::-webkit-scrollbar { width: 6px; }
+.chatbot-messages::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+.chatbot-messages::-webkit-scrollbar-thumb { background: rgba(102, 126, 234, 0.5); border-radius: 3px; }
+
+.message {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    animation: messageIn 0.3s ease-out;
+    white-space: pre-line;
+}
+
+@keyframes messageIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message.bot {
+    background: rgba(102, 126, 234, 0.2);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message.user {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+/* گزینه‌های سریع */
+.quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.quick-reply {
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    color: #667eea;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-reply:hover {
+    background: rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+}
+
+/* اینپوت */
+.chatbot-input {
+    padding: 15px;
+    border-top: 1px solid rgba(102, 126, 234, 0.3);
+    display: flex;
+    gap: 10px;
+}
+
+.chatbot-input input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 25px;
+    padding: 10px 15px;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.chatbot-input input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+.chatbot-input button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.chatbot-input button:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-input button svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+/* تایپینگ */
+.typing {
+    display: flex;
+    gap: 4px;
+    padding: 12px 16px;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 15px;
+    align-self: flex-start;
+}
+
+.typing span {
+    width: 8px;
+    height: 8px;
+    background: #667eea;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+    .chatbot-window {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        max-width: 100%;
+    }
+    body[dir="rtl"] .chatbot-window {
+        right: 0;
+        left: 0;
+    }
+    .chatbot-toggle {
+        bottom: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    body[dir="rtl"] .chatbot-toggle {
+        right: 20px;
+        left: auto;
+    }
+    .telegram-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    body[dir="rtl"] .telegram-toggle {
+        left: 20px;
+        right: auto;
+    }
+}
