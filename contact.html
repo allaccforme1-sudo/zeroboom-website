@@ -251,7 +251,141 @@
         }
         .cta-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6); }
 
-        /* Footer Styles */
+        /* ===== Contact Cards Section (NEW - خفن!) ===== */
+        .contact-section {
+            position: relative; z-index: 2;
+            max-width: 1000px; margin: 0 auto; padding: 60px 20px 80px;
+        }
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .contact-card {
+            position: relative;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: cardEntry 0.8s ease-out both;
+        }
+        .contact-card:nth-child(1) { animation-delay: 0.1s; }
+        .contact-card:nth-child(2) { animation-delay: 0.3s; }
+
+        @keyframes cardEntry {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Animated Border Glow */
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #f093fb, #667eea, #764ba2, #667eea);
+            background-size: 400% 400%;
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: borderGlow 4s ease infinite;
+        }
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .contact-card:hover::before { opacity: 1; }
+
+        .contact-card::after {
+            content: '';
+            position: absolute;
+            top: 2px; left: 2px; right: 2px; bottom: 2px;
+            background: rgba(10, 10, 10, 0.95);
+            border-radius: 18px;
+            z-index: -1;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-icon-wrapper {
+            width: 90px; height: 90px;
+            margin: 0 auto 25px;
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .contact-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(240, 147, 251, 0.3));
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.15); opacity: 0.3; }
+        }
+        .contact-icon {
+            position: relative; z-index: 1;
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.4s ease;
+        }
+        .contact-card:hover .contact-icon {
+            transform: rotate(360deg) scale(1.1);
+            background: linear-gradient(135deg, #f093fb 0%, #667eea 100%);
+        }
+        .contact-icon svg { width: 26px; height: 26px; fill: white; }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .contact-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            word-break: break-all;
+            transition: color 0.3s ease;
+        }
+        .contact-card:hover .contact-value {
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .contact-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            border-radius: 50px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .contact-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
         .site-footer {
             position: relative; z-index: 2;
             background: rgba(5, 5, 5, 0.9); border-top: 1px solid rgba(102, 126, 234, 0.3);
@@ -298,7 +432,7 @@
             .lang-switcher { top: 75px; right: 20px; font-size: 0.85rem; }
             body[dir="rtl"] .lang-switcher { left: 20px; }
             .section-title { font-size: 2rem; }
-            .knowledge-grid, .payment-grid { grid-template-columns: 1fr; }
+            .knowledge-grid, .payment-grid, .contact-grid { grid-template-columns: 1fr; }
             .cta-title { font-size: 1.5rem; }
             .cta-box { padding: 35px 25px; }
             .guarantee-title { font-size: 1.2rem; }
@@ -433,6 +567,38 @@
         </div>
     </div>
 
+    <!-- ===== NEW: Contact Cards Section ===== -->
+    <div class="contact-section">
+        <h2 class="section-title" id="contactTitle">Get In Touch</h2>
+        <p class="section-subtitle" id="contactSubtitle">Choose your preferred way to reach us. We're here to help!</p>
+
+        <div class="contact-grid">
+            <!-- Email Card -->
+            <div class="contact-card">
+                <div class="contact-icon-wrapper">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                </div>
+                <div class="contact-label" id="emailLabel">Email Us</div>
+                <div class="contact-value" id="contactEmail">Zeroboom.web@yahoo.com</div>
+                <a href="mailto:Zeroboom.web@yahoo.com" class="contact-link" id="emailBtn">Send Email</a>
+            </div>
+
+            <!-- Telegram Card -->
+            <div class="contact-card">
+                <div class="contact-icon-wrapper">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+                    </div>
+                </div>
+                <div class="contact-label" id="telegramLabel">Telegram</div>
+                <div class="contact-value" id="contactTelegram">@Zerooboom</div>
+                <a href="https://t.me/Zerooboom" target="_blank" class="contact-link" id="telegramBtn">Open Chat</a>
+            </div>
+        </div>
+    </div>
+
     <!-- CTA Bottom -->
     <div class="cta-bottom">
         <div class="cta-box">
@@ -442,7 +608,7 @@
         </div>
     </div>
 
-    <!-- ===== Footer ===== -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
@@ -505,6 +671,14 @@
                 pStep3Title: "Final Delivery", pStep3Desc: "Once the website is fully completed and you're 100% satisfied, you pay the remaining balance.", pStep3Amount: "Remaining 50%",
                 guaranteeTitle: "Our Guarantee",
                 guaranteeDesc: "You don't pay until you're satisfied. If at any stage you're not happy with the progress, you can stop the project with no additional charges. Your satisfaction is our priority.",
+                contactTitle: "Get In Touch",
+                contactSubtitle: "Choose your preferred way to reach us. We're here to help!",
+                emailLabel: "Email Us",
+                contactEmail: "Zeroboom.web@yahoo.com",
+                emailBtn: "Send Email",
+                telegramLabel: "Telegram",
+                contactTelegram: "@Zerooboom",
+                telegramBtn: "Open Chat",
                 ctaTitle: "Ready to Start?", ctaDesc: "Get in touch today for a free consultation. No commitment, no pressure.", ctaBtn: "Talk to Us on Telegram",
                 langText: "فارسی",
                 navHome: "Home", navAbout: "About Us", navServices: "Services", navContact: "Contact Us",
@@ -522,15 +696,23 @@
                 seoTitle: "سئو (SEO)", seoDesc: "بهینه‌سازی موتور جستجو به وب‌سایت شما کمک می‌کند تا رتبه بالاتری در گوگل داشته باشد. با تکنیک‌های هوشمند، مطمئن می‌شویم کسب‌وکار شما در زمان مناسب توسط افراد مناسب پیدا شود.",
                 htmlTitle: "HTML و CSS", htmlDesc: "پایه و اساس هر وب‌سایت. HTML ساختار را می‌سازد و CSS آن را زیبا استایل می‌دهد. با هم، تجربه بصری‌ای را ایجاد می‌کنند که بازدیدکنندگان شما می‌بینند و با آن تعامل می‌کنند.",
                 responsiveTitle: "طراحی واکنش‌گرا", responsiveDesc: "وب‌سایت‌هایی که در هر دستگاهی - از موبایل تا دسکتاپ - عالی به نظر می‌رسند. سایت شما به طور خودکار چیدمان خود را برای بهترین تجربه کاربری تطبیق می‌دهد.",
-                wpTitle: "وردپرس", wpDesc: "محبوب‌ترین سیستم مدیریت محتوا در جهان. بیش از ۴۰٪ وب‌سایت‌های دنیا با وردپرس ساخته شده‌اند و مدیریت محتوا را بدون نیاز به کدنویسی آسان می‌کنند.",
+                wpTitle: "وردپرس", wpDesc: "محبوب‌ترین سیستم مدیریت محتوا در جهان. بیش از ۴٪ وب‌سایت‌های دنیا با وردپرس ساخته شده‌اند و مدیریت محتوا را بدون نیاز به کدنویسی آسان می‌کنند.",
                 uxTitle: "طراحی UI/UX", uxDesc: "طراحی رابط کاربری و تجربه کاربری بر زیبا و آسان کردن وب‌سایت‌ها تمرکز دارد. طراحی عالی فقط درباره ظاهر نیست - درباره احساس کاربران است.",
                 paymentTitle: "شرایط پرداخت منصفانه",
                 paymentSubtitle: "ما به اعتماد و شفافیت اعتقاد داریم. شما فقط وقتی نتیجه را ببینید، پرداخت می‌کنید.",
                 pStep1Title: "شروع رایگان", pStep1Desc: "کار روی پروژه شما بدون هیچ هزینه اولیه شروع می‌شود. بدون ریسک، بدون فشار.", pStep1Amount: "۰ تومان",
-                pStep2Title: "مرحله اول", pStep2Desc: "پس از تکمیل ۲۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.", pStep2Amount: "۵۰٪ مبلغ کل",
-                pStep3Title: "تحویل نهایی", pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.", pStep3Amount: "۵۰٪ باقی‌مانده",
+                pStep2Title: "مرحله اول", pStep2Desc: "پس از تکمیل ۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.", pStep2Amount: "۵۰٪ مبلغ کل",
+                pStep3Title: "تحویل نهایی", pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.", pStep3Amount: "۵۰٪ باقی‌مانده",
                 guaranteeTitle: "تضمین ما",
                 guaranteeDesc: "تا وقتی راضی نباشید، پولی پرداخت نمی‌کنید. اگر در هر مرحله از پیشرفت کار راضی نبودید، می‌توانید پروژه را بدون هزینه اضافی متوقف کنید. رضایت شما اولویت ماست.",
+                contactTitle: "تماس با ما",
+                contactSubtitle: "راه ارتباطی مورد علاقه‌تان را انتخاب کنید. ما اینجاییم تا کمکتان کنیم!",
+                emailLabel: "ایمیل",
+                contactEmail: "Zeroboom.web@yahoo.com",
+                emailBtn: "ارسال ایمیل",
+                telegramLabel: "تلگرام",
+                contactTelegram: "@Zerooboom",
+                telegramBtn: "باز کردن چت",
                 ctaTitle: "آماده شروع هستید؟", ctaDesc: "همین امروز برای مشاوره رایگان با ما تماس بگیرید. بدون تعهد، بدون فشار.", ctaBtn: "گفتگو در تلگرام",
                 langText: "English",
                 navHome: "خانه", navAbout: "درباره ما", navServices: "خدمات", navContact: "تماس با ما",
@@ -547,7 +729,7 @@
         function applyLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
-            const ids = ['tagline', 'knowledgeTitle', 'knowledgeSubtitle', 'jsTitle', 'jsDesc', 'seoTitle', 'seoDesc', 'htmlTitle', 'htmlDesc', 'responsiveTitle', 'responsiveDesc', 'wpTitle', 'wpDesc', 'uxTitle', 'uxDesc', 'paymentTitle', 'paymentSubtitle', 'pStep1Title', 'pStep1Desc', 'pStep1Amount', 'pStep2Title', 'pStep2Desc', 'pStep2Amount', 'pStep3Title', 'pStep3Desc', 'pStep3Amount', 'guaranteeTitle', 'guaranteeDesc', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
+            const ids = ['tagline', 'knowledgeTitle', 'knowledgeSubtitle', 'jsTitle', 'jsDesc', 'seoTitle', 'seoDesc', 'htmlTitle', 'htmlDesc', 'responsiveTitle', 'responsiveDesc', 'wpTitle', 'wpDesc', 'uxTitle', 'uxDesc', 'paymentTitle', 'paymentSubtitle', 'pStep1Title', 'pStep1Desc', 'pStep1Amount', 'pStep2Title', 'pStep2Desc', 'pStep2Amount', 'pStep3Title', 'pStep3Desc', 'pStep3Amount', 'guaranteeTitle', 'guaranteeDesc', 'contactTitle', 'contactSubtitle', 'emailLabel', 'contactEmail', 'emailBtn', 'telegramLabel', 'contactTelegram', 'telegramBtn', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = t[id];
