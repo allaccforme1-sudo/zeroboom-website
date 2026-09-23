@@ -154,7 +154,7 @@
             color: #aaaaaa; line-height: 1.7; font-size: 0.95rem;
         }
 
-        /* ===== Payment Promise Section ===== */
+        /* Payment Section */
         .payment-section {
             position: relative; z-index: 2;
             max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px;
@@ -343,7 +343,6 @@
         <p class="section-subtitle" id="knowledgeSubtitle">A brief look at the technologies and concepts that power modern websites</p>
 
         <div class="knowledge-grid">
-            <!-- JavaScript -->
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2">
@@ -354,7 +353,6 @@
                 <p class="knowledge-desc" id="jsDesc">The programming language that brings websites to life. It creates interactive elements, animations, and dynamic content that respond to user actions in real-time.</p>
             </div>
 
-            <!-- SEO -->
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
@@ -368,7 +366,6 @@
                 <p class="knowledge-desc" id="seoDesc">Search Engine Optimization helps your website rank higher on Google. Through smart techniques, we make sure your business gets found by the right people at the right time.</p>
             </div>
 
-            <!-- HTML & CSS -->
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
@@ -381,7 +378,6 @@
                 <p class="knowledge-desc" id="htmlDesc">The foundation of every website. HTML builds the structure while CSS styles it beautifully. Together, they create the visual experience your visitors see and interact with.</p>
             </div>
 
-            <!-- Responsive Design -->
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
@@ -393,7 +389,6 @@
                 <p class="knowledge-desc" id="responsiveDesc">Websites that look perfect on every device - from phones to desktops. Your site automatically adapts its layout to provide the best experience for every user.</p>
             </div>
 
-            <!-- WordPress -->
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
@@ -406,7 +401,6 @@
                 <p class="knowledge-desc" id="wpDesc">The world's most popular content management system. It powers over 40% of all websites and makes it easy to manage your content without any coding knowledge.</p>
             </div>
 
-            <!-- UI/UX -->
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2">
@@ -419,21 +413,19 @@
         </div>
     </div>
 
-    <!-- ===== Payment Promise Section ===== -->
+    <!-- Payment Section -->
     <div class="payment-section">
         <h2 class="section-title" id="paymentTitle">Fair Payment Terms</h2>
         <p class="section-subtitle" id="paymentSubtitle">We believe in trust and transparency. You only pay when you see results.</p>
 
         <div class="payment-grid">
-            <!-- Step 1 -->
             <div class="payment-card">
                 <div class="payment-step">1</div>
                 <h3 class="payment-title" id="pStep1Title">Start Free</h3>
                 <p class="payment-desc" id="pStep1Desc">We begin working on your project with zero upfront cost. No risk, no pressure.</p>
-                <span class="payment-amount" id="pStep1Amount">$0 / 0 Toman</span>
+                <span class="payment-amount" id="pStep1Amount">$0</span>
             </div>
 
-            <!-- Step 2 -->
             <div class="payment-card">
                 <div class="payment-step">2</div>
                 <h3 class="payment-title" id="pStep2Title">First Milestone</h3>
@@ -441,7 +433,6 @@
                 <span class="payment-amount" id="pStep2Amount">50% of Total</span>
             </div>
 
-            <!-- Step 3 -->
             <div class="payment-card">
                 <div class="payment-step">3</div>
                 <h3 class="payment-title" id="pStep3Title">Final Delivery</h3>
@@ -450,7 +441,6 @@
             </div>
         </div>
 
-        <!-- Guarantee Box -->
         <div class="guarantee-box">
             <div class="guarantee-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
@@ -481,7 +471,7 @@
     </button>
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
-            <div class="chatbot-avatar"></div>
+            <div class="chatbot-avatar">🤖</div>
             <div class="chatbot-title"><h3 id="chatbotTitle">ZeroBoom Assistant</h3><p id="chatbotStatus">Online</p></div>
             <button class="chatbot-close" onclick="toggleChatbot()">×</button>
         </div>
@@ -515,7 +505,7 @@
                 paymentSubtitle: "We believe in trust and transparency. You only pay when you see results.",
                 pStep1Title: "Start Free",
                 pStep1Desc: "We begin working on your project with zero upfront cost. No risk, no pressure.",
-                pStep1Amount: "$0 / 0 Toman",
+                pStep1Amount: "$0",
                 pStep2Title: "First Milestone",
                 pStep2Desc: "After completing 20% of the project and showing you the initial design, you pay the first installment.",
                 pStep2Amount: "50% of Total",
@@ -555,9 +545,9 @@
                 pStep1Amount: "۰ تومان",
                 pStep2Title: "مرحله اول",
                 pStep2Desc: "پس از تکمیل ۲۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.",
-                pStep2Amount: "۵٪ مبلغ کل",
+                pStep2Amount: "۵۰٪ مبلغ کل",
                 pStep3Title: "تحویل نهایی",
-                pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.",
+                pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.",
                 pStep3Amount: "۵۰٪ باقی‌مانده",
                 guaranteeTitle: "تضمین ما",
                 guaranteeDesc: "تا وقتی راضی نباشید، پولی پرداخت نمی‌کنید. اگر در هر مرحله از پیشرفت کار راضی نبودید، می‌توانید پروژه را بدون هزینه اضافی متوقف کنید. رضایت شما اولویت ماست.",
