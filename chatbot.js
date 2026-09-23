@@ -1,21 +1,20 @@
-// پاسخ‌های چت‌بات
 const botResponses = {
     en: {
         greeting: "Hi! 👋 I'm ZeroBoom Assistant. How can I help you today?",
         services: "We offer:\n• Web Design 💻\n• E-commerce Stores 🛒\n• SEO Optimization 🚀\n• Support & Maintenance 🛠️\n\nWhich service interests you?",
-        pricing: "Our pricing depends on your project. Basic websites start from $500, and e-commerce from $1000. Would you like a custom quote?",
-        contact: "You can reach us at:\n📧 info@zeroboom.com\n📱 +98 912 345 6789\n\nOr fill out the contact form on our website!",
+        pricing: "Our pricing depends on your project. We offer fair, milestone-based payments. Would you like a custom quote?",
+        contact: "You can reach us at:\n📧 Zeroboom.web@yahoo.com\n✈️ Telegram: @Zerooboom\n\nOr message us right here!",
         about: "ZeroBoom is a web design agency founded by Aydin and Behnam. We help businesses grow from zero to summit! 🚀",
-        order: "To start a project:\n1. Fill out the contact form\n2. We'll schedule a free consultation\n3. We'll send you a proposal\n4. After approval, we start working!\n\nReady to begin?",
+        order: "To start a project:\n1. Message us here or on Telegram\n2. We'll schedule a free consultation\n3. We'll send you a proposal\n4. After approval, we start working!\n\nReady to begin?",
         default: "I'm not sure I understand. Could you please rephrase? Or choose from the options below."
     },
     fa: {
         greeting: "سلام! 👋 من دستیار زیروبام هستم. چطور می‌تونم کمکتون کنم؟",
         services: "خدمات ما:\n• طراحی وب‌سایت 💻\n• فروشگاه اینترنتی 🛒\n• سئو و بهینه‌سازی 🚀\n• پشتیبانی و نگهداری 🛠️\n\nکدوم خدمت براتون جالبه؟",
-        pricing: "قیمت‌ها بسته به پروژه متفاوته. سایت‌های پایه از ۵ میلیون تومان و فروشگاه‌ها از ۱۰ میلیون تومان شروع می‌شن. می‌خواید پیشنهاد قیمت بگیرید؟",
-        contact: "می‌تونید از این راه‌ها با ما در تماس باشید:\n📧 info@zeroboom.com\n📱 ۰۹۱ ۳۴۵ ۶۸۹\n\nیا فرم تماس سایت رو پر کنید!",
-        about: "زیروبام یه آژانس طراحی وب‌سایته که توسط آیدین و بهنام تأسیس شده. ما به کسب‌وکارها کمک می‌کنیم از صفر تا بام برسن! ",
-        order: "برای شروع پروژه:\n۱. فرم تماس رو پر کنید\n۲. یه مشاوره رایگان هماهنگ می‌کنیم\n۳. پیشنهاد قیمت براتون می‌فرستیم\n۴. بعد از تایید، کار رو شروع می‌کنیم!\n\nآماده‌اید شروع کنیم؟",
+        pricing: "قیمت‌ها بسته به پروژه متفاوته. ما پرداخت مرحله‌ای و منصفانه داریم. می‌خواید پیشنهاد قیمت بگیرید؟",
+        contact: "می‌تونید از این راه‌ها با ما در تماس باشید:\n📧 Zeroboom.web@yahoo.com\n✈️ تلگرام: @Zerooboom\n\nیا همینجا به ما پیام بدید!",
+        about: "زیروبام یه آژانس طراحی وب‌سایته که توسط آیدین و بهنام تأسیس شده. ما به کسب‌وکارها کمک می‌کنیم از صفر تا بام برسن! 🚀",
+        order: "برای شروع پروژه:\n۱. همینجا یا در تلگرام پیام بدید\n۲. یه مشاوره رایگان هماهنگ می‌کنیم\n۳. پیشنهاد قیمت براتون می‌فرستیم\n۴. بعد از تایید، کار رو شروع می‌کنیم!\n\nآماده‌اید شروع کنیم؟",
         default: "متوجه نشدم. می‌شه دوباره بگید؟ یا از گزینه‌های زیر انتخاب کنید."
     }
 };
@@ -26,7 +25,6 @@ const quickReplyLabels = {
 };
 
 const quickReplyKeys = ['services', 'pricing', 'contact', 'about', 'order'];
-
 let currentChatLang = localStorage.getItem('lang') || 'en';
 
 function getBotResponse(key) {
@@ -36,7 +34,6 @@ function getBotResponse(key) {
 function toggleChatbot() {
     const chatbot = document.getElementById('chatbotWindow');
     chatbot.classList.toggle('active');
-    
     if (chatbot.classList.contains('active')) {
         const messages = document.getElementById('chatbotMessages');
         if (messages.children.length === 0) {
@@ -85,9 +82,7 @@ function addQuickReplies() {
     const messages = document.getElementById('chatbotMessages');
     const replies = document.createElement('div');
     replies.className = 'quick-replies';
-    
     const options = quickReplyLabels[currentChatLang];
-    
     options.forEach((option, index) => {
         const btn = document.createElement('button');
         btn.className = 'quick-reply';
@@ -95,7 +90,6 @@ function addQuickReplies() {
         btn.onclick = () => handleQuickReply(option, quickReplyKeys[index]);
         replies.appendChild(btn);
     });
-    
     messages.appendChild(replies);
     messages.scrollTop = messages.scrollHeight;
 }
@@ -103,7 +97,6 @@ function addQuickReplies() {
 function handleQuickReply(label, key) {
     addUserMessage(label);
     showTyping();
-    
     setTimeout(() => {
         hideTyping();
         addBotMessage(getBotResponse(key));
@@ -114,12 +107,10 @@ function handleQuickReply(label, key) {
 function handleUserInput() {
     const input = document.getElementById('chatbotInput');
     const text = input.value.trim();
-    
     if (text) {
         addUserMessage(text);
         input.value = '';
         showTyping();
-        
         setTimeout(() => {
             hideTyping();
             addBotMessage(getBotResponse('default'));
@@ -128,7 +119,6 @@ function handleUserInput() {
     }
 }
 
-// تابع برای آپدیت زبان چت‌بات (وقتی کاربر زبان سایت رو عوض می‌کنه)
 function updateChatbotLanguage(lang) {
     currentChatLang = lang;
     const messages = document.getElementById('chatbotMessages');
@@ -137,7 +127,6 @@ function updateChatbotLanguage(lang) {
         addBotMessage(getBotResponse('greeting'));
         addQuickReplies();
     }
-    
     const input = document.getElementById('chatbotInput');
     if (input) {
         input.placeholder = lang === 'fa' ? 'پیام خود را بنویسید...' : 'Type your message...';
