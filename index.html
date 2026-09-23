@@ -60,41 +60,17 @@
         .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Footer Styles */
+        /* Minimal Footer */
         .site-footer {
             position: absolute; bottom: 0; left: 0; width: 100%; z-index: 2;
-            background: rgba(5, 5, 5, 0.9); border-top: 1px solid rgba(102, 126, 234, 0.2);
-            padding: 40px 20px 25px; backdrop-filter: blur(10px);
+            padding: 20px; text-align: center;
         }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap;
-            justify-content: space-between; align-items: center; gap: 30px;
-        }
-        .footer-brand h3 {
-            font-size: 1.8rem; font-weight: 900;
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;
-        }
-        .footer-brand p { color: #888; font-size: 0.9rem; max-width: 300px; }
-        .footer-links { display: flex; flex-direction: column; gap: 12px; }
-        .footer-links a {
-            color: #cccccc; text-decoration: none; font-size: 0.95rem;
-            transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
-        }
-        .footer-links a:hover { color: #f093fb; transform: translateX(5px); }
-        body[dir="rtl"] .footer-links a:hover { transform: translateX(-5px); }
-        .footer-links svg { transition: all 0.3s ease; }
-        .footer-links a:hover svg { stroke: #f093fb; fill: #f093fb; }
         .footer-bottom {
-            max-width: 1200px; margin: 25px auto 0; padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08); text-align: center; color: #666; font-size: 0.85rem;
+            color: #555; font-size: 0.8rem;
         }
         @media (max-width: 768px) {
             .logo { font-size: 3rem; } .tagline { font-size: 1.2rem; }
             .lang-switcher { padding: 6px 15px; font-size: 0.9rem; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .footer-links { align-items: center; }
-            body[dir="rtl"] .footer-links a:hover, .footer-links a:hover { transform: translateY(-3px); }
         }
     </style>
 </head>
@@ -111,24 +87,8 @@
         <a href="contact.html" class="cta-button" id="ctaBtn">Start Your Project</a>
     </div>
 
-    <!-- Footer -->
+    <!-- Minimal Footer -->
     <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>ZeroBoom</h3>
-                <p id="footerDesc">From Zero to Summit. We build digital experiences that drive results.</p>
-            </div>
-            <div class="footer-links">
-                <a href="mailto:Zeroboom.web@yahoo.com">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    <span id="footerEmail">Zeroboom.web@yahoo.com</span>
-                </a>
-                <a href="https://t.me/Zerooboom" target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
-                    <span id="footerTelegram">@Zerooboom</span>
-                </a>
-            </div>
-        </div>
         <div class="footer-bottom">
             <p id="footerCopy">© 2026 ZeroBoom. All rights reserved.</p>
         </div>
@@ -157,15 +117,13 @@
             en: {
                 tagline: "From Zero to Summit", ctaBtn: "Start Your Project", langText: "فارسی",
                 chatbotTitle: "ZeroBoom Assistant", chatbotStatus: "Online",
-                footerDesc: "From Zero to Summit. We build digital experiences that drive results.",
-                footerEmail: "Zeroboom.web@yahoo.com", footerCopy: "© 2026 ZeroBoom. All rights reserved.",
+                footerCopy: "© 2026 ZeroBoom. All rights reserved.",
                 dir: "ltr", lang: "en"
             },
             fa: {
                 tagline: "از صفر تا بام", ctaBtn: "شروع پروژه", langText: "English",
                 chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین",
-                footerDesc: "از صفر تا بام. ما تجربه‌های دیجیتالی می‌سازیم که نتیجه‌بخش هستند.",
-                footerEmail: "Zeroboom.web@yahoo.com", footerCopy: "© ۲۰۲۶ زیروبام. تمامی حقوق محفوظ است.",
+                footerCopy: "© ۲۰۲۶ زیروبام. تمامی حقوق محفوظ است.",
                 dir: "rtl", lang: "fa"
             }
         };
@@ -175,7 +133,7 @@
         function applyLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
-            const ids = ['tagline', 'ctaBtn', 'langText', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
+            const ids = ['tagline', 'ctaBtn', 'langText', 'chatbotTitle', 'chatbotStatus', 'footerCopy'];
             ids.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = t[id]; });
             document.documentElement.lang = t.lang; document.documentElement.dir = t.dir;
             if (lang === 'fa') document.body.classList.add('fa'); else document.body.classList.remove('fa');
