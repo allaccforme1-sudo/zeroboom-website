@@ -154,6 +154,112 @@
             color: #aaaaaa; line-height: 1.7; font-size: 0.95rem;
         }
 
+        /* ===== Payment Promise Section ===== */
+        .payment-section {
+            position: relative; z-index: 2;
+            max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px;
+        }
+
+        .payment-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; margin-bottom: 40px;
+        }
+
+        .payment-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.25);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .payment-card::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #f093fb 100%);
+            transform: scaleX(0); transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        .payment-card:hover::after { transform: scaleX(1); transform-origin: left; }
+        .payment-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(240, 147, 251, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .payment-step {
+            width: 60px; height: 60px; margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 900; color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s ease;
+        }
+        .payment-card:hover .payment-step { transform: scale(1.1) rotate(360deg); }
+
+        .payment-title {
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .payment-desc {
+            color: #aaaaaa; line-height: 1.6; font-size: 0.95rem;
+        }
+        .payment-amount {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 18px;
+            background: rgba(102, 126, 234, 0.15);
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            border-radius: 20px;
+            font-size: 0.9rem; font-weight: 600;
+            color: #667eea;
+        }
+
+        /* Guarantee Box */
+        .guarantee-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .guarantee-box::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #f093fb 50%, #667eea 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .guarantee-icon {
+            width: 70px; height: 70px; margin: 0 auto 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(240, 147, 251, 0.2) 100%);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .guarantee-icon svg { width: 40px; height: 40px; }
+
+        .guarantee-title {
+            font-size: 1.5rem; font-weight: 900; margin-bottom: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .guarantee-desc {
+            color: #cccccc; line-height: 1.7; font-size: 1rem;
+            max-width: 600px; margin: 0 auto;
+        }
+
         /* CTA Bottom */
         .cta-bottom {
             position: relative; z-index: 2;
@@ -194,8 +300,10 @@
             body[dir="rtl"] .lang-switcher { left: 20px; }
             .section-title { font-size: 2rem; }
             .knowledge-grid { grid-template-columns: 1fr; }
+            .payment-grid { grid-template-columns: 1fr; }
             .cta-title { font-size: 1.5rem; }
             .cta-box { padding: 35px 25px; }
+            .guarantee-title { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -311,12 +419,56 @@
         </div>
     </div>
 
+    <!-- ===== Payment Promise Section ===== -->
+    <div class="payment-section">
+        <h2 class="section-title" id="paymentTitle">Fair Payment Terms</h2>
+        <p class="section-subtitle" id="paymentSubtitle">We believe in trust and transparency. You only pay when you see results.</p>
+
+        <div class="payment-grid">
+            <!-- Step 1 -->
+            <div class="payment-card">
+                <div class="payment-step">1</div>
+                <h3 class="payment-title" id="pStep1Title">Start Free</h3>
+                <p class="payment-desc" id="pStep1Desc">We begin working on your project with zero upfront cost. No risk, no pressure.</p>
+                <span class="payment-amount" id="pStep1Amount">$0 / 0 Toman</span>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="payment-card">
+                <div class="payment-step">2</div>
+                <h3 class="payment-title" id="pStep2Title">First Milestone</h3>
+                <p class="payment-desc" id="pStep2Desc">After completing 20% of the project and showing you the initial design, you pay the first installment.</p>
+                <span class="payment-amount" id="pStep2Amount">50% of Total</span>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="payment-card">
+                <div class="payment-step">3</div>
+                <h3 class="payment-title" id="pStep3Title">Final Delivery</h3>
+                <p class="payment-desc" id="pStep3Desc">Once the website is fully completed and you're 100% satisfied, you pay the remaining balance.</p>
+                <span class="payment-amount" id="pStep3Amount">Remaining 50%</span>
+            </div>
+        </div>
+
+        <!-- Guarantee Box -->
+        <div class="guarantee-box">
+            <div class="guarantee-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+            </div>
+            <h3 class="guarantee-title" id="guaranteeTitle">Our Guarantee</h3>
+            <p class="guarantee-desc" id="guaranteeDesc">You don't pay until you're satisfied. If at any stage you're not happy with the progress, you can stop the project with no additional charges. Your satisfaction is our priority.</p>
+        </div>
+    </div>
+
     <!-- CTA Bottom -->
     <div class="cta-bottom">
         <div class="cta-box">
-            <h2 class="cta-title" id="ctaTitle">Ready to Learn More?</h2>
-            <p class="cta-desc" id="ctaDesc">We're here to help you understand what your business needs. Get in touch for a free consultation.</p>
-            <a href="https://t.me/Zerooboom" target="_blank" class="cta-btn" id="ctaBtn">Talk to Us on Telegram ️</a>
+            <h2 class="cta-title" id="ctaTitle">Ready to Start?</h2>
+            <p class="cta-desc" id="ctaDesc">Get in touch today for a free consultation. No commitment, no pressure.</p>
+            <a href="https://t.me/Zerooboom" target="_blank" class="cta-btn" id="ctaBtn">Talk to Us on Telegram</a>
         </div>
     </div>
 
@@ -329,7 +481,7 @@
     </button>
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
-            <div class="chatbot-avatar">🤖</div>
+            <div class="chatbot-avatar"></div>
             <div class="chatbot-title"><h3 id="chatbotTitle">ZeroBoom Assistant</h3><p id="chatbotStatus">Online</p></div>
             <button class="chatbot-close" onclick="toggleChatbot()">×</button>
         </div>
@@ -359,9 +511,22 @@
                 wpDesc: "The world's most popular content management system. It powers over 40% of all websites and makes it easy to manage your content without any coding knowledge.",
                 uxTitle: "UI/UX Design",
                 uxDesc: "User Interface and User Experience design focuses on making websites beautiful AND easy to use. Great design isn't just about looks - it's about how users feel.",
-                ctaTitle: "Ready to Learn More?",
-                ctaDesc: "We're here to help you understand what your business needs. Get in touch for a free consultation.",
-                ctaBtn: "Talk to Us on Telegram ️",
+                paymentTitle: "Fair Payment Terms",
+                paymentSubtitle: "We believe in trust and transparency. You only pay when you see results.",
+                pStep1Title: "Start Free",
+                pStep1Desc: "We begin working on your project with zero upfront cost. No risk, no pressure.",
+                pStep1Amount: "$0 / 0 Toman",
+                pStep2Title: "First Milestone",
+                pStep2Desc: "After completing 20% of the project and showing you the initial design, you pay the first installment.",
+                pStep2Amount: "50% of Total",
+                pStep3Title: "Final Delivery",
+                pStep3Desc: "Once the website is fully completed and you're 100% satisfied, you pay the remaining balance.",
+                pStep3Amount: "Remaining 50%",
+                guaranteeTitle: "Our Guarantee",
+                guaranteeDesc: "You don't pay until you're satisfied. If at any stage you're not happy with the progress, you can stop the project with no additional charges. Your satisfaction is our priority.",
+                ctaTitle: "Ready to Start?",
+                ctaDesc: "Get in touch today for a free consultation. No commitment, no pressure.",
+                ctaBtn: "Talk to Us on Telegram",
                 langText: "فارسی",
                 navHome: "Home", navAbout: "About Us", navServices: "Services", navContact: "Contact Us",
                 chatbotTitle: "ZeroBoom Assistant", chatbotStatus: "Online",
@@ -383,9 +548,22 @@
                 wpDesc: "محبوب‌ترین سیستم مدیریت محتوا در جهان. بیش از ۴۰٪ وب‌سایت‌های دنیا با وردپرس ساخته شده‌اند و مدیریت محتوا را بدون نیاز به کدنویسی آسان می‌کنند.",
                 uxTitle: "طراحی UI/UX",
                 uxDesc: "طراحی رابط کاربری و تجربه کاربری بر زیبا و آسان کردن وب‌سایت‌ها تمرکز دارد. طراحی عالی فقط درباره ظاهر نیست - درباره احساس کاربران است.",
-                ctaTitle: "آماده یادگیری بیشتر هستید؟",
-                ctaDesc: "ما اینجا هستیم تا به شما کمک کنیم بفهمید کسب‌وکارتان به چه چیزی نیاز دارد. برای مشاوره رایگان با ما تماس بگیرید.",
-                ctaBtn: "گفتگو در تلگرام ️",
+                paymentTitle: "شرایط پرداخت منصفانه",
+                paymentSubtitle: "ما به اعتماد و شفافیت اعتقاد داریم. شما فقط وقتی نتیجه را ببینید، پرداخت می‌کنید.",
+                pStep1Title: "شروع رایگان",
+                pStep1Desc: "کار روی پروژه شما بدون هیچ هزینه اولیه شروع می‌شود. بدون ریسک، بدون فشار.",
+                pStep1Amount: "۰ تومان",
+                pStep2Title: "مرحله اول",
+                pStep2Desc: "پس از تکمیل ۲۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.",
+                pStep2Amount: "۵٪ مبلغ کل",
+                pStep3Title: "تحویل نهایی",
+                pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.",
+                pStep3Amount: "۵۰٪ باقی‌مانده",
+                guaranteeTitle: "تضمین ما",
+                guaranteeDesc: "تا وقتی راضی نباشید، پولی پرداخت نمی‌کنید. اگر در هر مرحله از پیشرفت کار راضی نبودید، می‌توانید پروژه را بدون هزینه اضافی متوقف کنید. رضایت شما اولویت ماست.",
+                ctaTitle: "آماده شروع هستید؟",
+                ctaDesc: "همین امروز برای مشاوره رایگان با ما تماس بگیرید. بدون تعهد، بدون فشار.",
+                ctaBtn: "گفتگو در تلگرام",
                 langText: "English",
                 navHome: "خانه", navAbout: "درباره ما", navServices: "خدمات", navContact: "تماس با ما",
                 chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین",
@@ -408,6 +586,13 @@
             document.getElementById('responsiveTitle').textContent = t.responsiveTitle; document.getElementById('responsiveDesc').textContent = t.responsiveDesc;
             document.getElementById('wpTitle').textContent = t.wpTitle; document.getElementById('wpDesc').textContent = t.wpDesc;
             document.getElementById('uxTitle').textContent = t.uxTitle; document.getElementById('uxDesc').textContent = t.uxDesc;
+            document.getElementById('paymentTitle').textContent = t.paymentTitle;
+            document.getElementById('paymentSubtitle').textContent = t.paymentSubtitle;
+            document.getElementById('pStep1Title').textContent = t.pStep1Title; document.getElementById('pStep1Desc').textContent = t.pStep1Desc; document.getElementById('pStep1Amount').textContent = t.pStep1Amount;
+            document.getElementById('pStep2Title').textContent = t.pStep2Title; document.getElementById('pStep2Desc').textContent = t.pStep2Desc; document.getElementById('pStep2Amount').textContent = t.pStep2Amount;
+            document.getElementById('pStep3Title').textContent = t.pStep3Title; document.getElementById('pStep3Desc').textContent = t.pStep3Desc; document.getElementById('pStep3Amount').textContent = t.pStep3Amount;
+            document.getElementById('guaranteeTitle').textContent = t.guaranteeTitle;
+            document.getElementById('guaranteeDesc').textContent = t.guaranteeDesc;
             document.getElementById('ctaTitle').textContent = t.ctaTitle;
             document.getElementById('ctaDesc').textContent = t.ctaDesc;
             document.getElementById('ctaBtn').textContent = t.ctaBtn;
