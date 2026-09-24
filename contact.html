@@ -201,7 +201,6 @@
         }
         .guarantee-desc { color: #cccccc; line-height: 1.7; font-size: 1rem; max-width: 600px; margin: 0 auto; }
 
-        /* ===== Contact Cards with 3D Tilt ===== */
         .contact-section { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; padding: 60px 20px 80px; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .contact-card {
@@ -209,8 +208,6 @@
             border-radius: 20px; padding: 40px 30px; text-align: center;
             overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             animation: cardEntry 0.8s ease-out both;
-            transform-style: preserve-3d;
-            perspective: 1000px;
         }
         .contact-card:nth-child(1) { animation-delay: 0.1s; }
         .contact-card:nth-child(2) { animation-delay: 0.3s; }
@@ -227,26 +224,10 @@
             content: ''; position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px;
             background: rgba(10, 10, 10, 0.95); border-radius: 18px; z-index: -1;
         }
-        .contact-card:hover { box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3); }
-        
-        /* 3D Tilt Glow Effect */
-        .tilt-glow {
-            position: absolute;
-            width: 200px; height: 200px;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.4) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-        .contact-card:hover .tilt-glow { opacity: 1; }
-        
+        .contact-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3); }
         .contact-icon-wrapper {
             width: 90px; height: 90px; margin: 0 auto 25px; position: relative;
             display: flex; align-items: center; justify-content: center;
-            z-index: 1;
         }
         .contact-icon-wrapper::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -265,12 +246,10 @@
         .contact-label {
             font-size: 0.85rem; color: #888; text-transform: uppercase;
             letter-spacing: 2px; margin-bottom: 10px; font-weight: 600;
-            z-index: 1; position: relative;
         }
         .contact-value {
             font-size: 1.2rem; font-weight: 700; color: #ffffff;
             word-break: break-all; transition: color 0.3s ease;
-            z-index: 1; position: relative;
         }
         .contact-card:hover .contact-value {
             background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
@@ -281,7 +260,6 @@
             background: rgba(102, 126, 234, 0.1); border: 1px solid rgba(102, 126, 234, 0.4);
             border-radius: 50px; color: #667eea; text-decoration: none;
             font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;
-            z-index: 1; position: relative;
         }
         .contact-link:hover {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -289,97 +267,84 @@
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
-        /* ===== NEW: Timeline Section ===== */
-        .timeline-section {
+        /* ===== NEW: Request Button Section ===== */
+        .request-section {
             position: relative; z-index: 2;
-            max-width: 1100px; margin: 0 auto; padding: 60px 20px 80px;
+            max-width: 800px; margin: 0 auto; padding: 60px 20px 80px;
+            text-align: center;
         }
-        .timeline-container {
+        .request-box {
+            background: linear-gradient(135deg, rgba(118, 75, 162, 0.2) 0%, rgba(102, 126, 234, 0.2) 100%);
+            border: 2px solid rgba(118, 75, 162, 0.5);
+            border-radius: 30px;
+            padding: 60px 40px;
+            backdrop-filter: blur(20px);
             position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 60px;
-            padding: 20px 0;
+            overflow: hidden;
+            animation: requestGlow 3s ease-in-out infinite;
         }
-        /* Connecting Line */
-        .timeline-container::before {
+        @keyframes requestGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(118, 75, 162, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(118, 75, 162, 0.6); }
+        }
+        .request-box::before {
             content: '';
             position: absolute;
-            top: 35px;
-            left: 5%;
-            right: 5%;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            border-radius: 3px;
-            z-index: 0;
-            opacity: 0.4;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(118, 75, 162, 0.1), transparent);
+            animation: requestShine 4s linear infinite;
         }
-        .timeline-step {
-            flex: 1;
-            text-align: center;
+        @keyframes requestShine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+        .request-title {
+            font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;
+            background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            position: relative; z-index: 1;
+        }
+        .request-desc {
+            font-size: 1.2rem; color: #cccccc; margin-bottom: 40px;
+            position: relative; z-index: 1;
+        }
+        .request-btn {
+            display: inline-block;
+            padding: 20px 60px;
+            font-size: 1.3rem; font-weight: 900;
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
             position: relative;
             z-index: 1;
-            padding: 0 15px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        .timeline-step.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .timeline-step:nth-child(1) { transition-delay: 0.1s; }
-        .timeline-step:nth-child(2) { transition-delay: 0.3s; }
-        .timeline-step:nth-child(3) { transition-delay: 0.5s; }
-        .timeline-step:nth-child(4) { transition-delay: 0.7s; }
-        
-        .timeline-dot {
-            width: 70px; height: 70px;
-            margin: 0 auto 25px;
-            background: rgba(10, 10, 10, 0.8);
-            border: 3px solid transparent;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem;
-            position: relative;
+            overflow: hidden;
             transition: all 0.4s ease;
-            background-clip: padding-box;
-            box-shadow: 0 0 0 3px #0a0a0a;
+            box-shadow: 0 15px 40px rgba(118, 75, 162, 0.5);
+            animation: requestPulse 2s ease-in-out infinite;
         }
-        .timeline-step::before {
+        @keyframes requestPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .request-btn::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            padding: 3px;
-            background: linear-gradient(135deg, #667eea, #f093fb);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            z-index: -1;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
-        .timeline-step:hover .timeline-dot {
-            transform: scale(1.15);
-            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+        .request-btn:hover::before {
+            width: 400px; height: 400px;
         }
-        .timeline-step-number {
-            position: absolute;
-            top: -8px; right: -8px;
-            width: 24px; height: 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: 900; color: white;
-            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.5);
-        }
-        body[dir="rtl"] .timeline-step-number { right: auto; left: -8px; }
-        .timeline-title {
-            font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;
-            color: #ffffff;
-        }
-        .timeline-desc {
-            font-size: 0.9rem; color: #aaaaaa; line-height: 1.6;
+        .request-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 60px rgba(118, 75, 162, 0.8);
+            animation: none;
         }
 
         .cta-bottom { position: relative; z-index: 2; max-width: 900px; margin: 40px auto 80px; padding: 0 20px; }
@@ -448,49 +413,8 @@
             .guarantee-title { font-size: 1.2rem; }
             .footer-content { flex-direction: column; text-align: center; }
             .footer-links { align-items: center; }
-            
-            /* Timeline Mobile */
-            .timeline-container {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-top: 40px;
-                padding-left: 40px;
-            }
-            body[dir="rtl"] .timeline-container {
-                padding-left: 0;
-                padding-right: 40px;
-            }
-            .timeline-container::before {
-                top: 0; bottom: 0;
-                left: 15px; right: auto;
-                width: 3px; height: 100%;
-            }
-            body[dir="rtl"] .timeline-container::before {
-                left: auto; right: 15px;
-            }
-            .timeline-step {
-                display: flex;
-                align-items: flex-start;
-                text-align: left;
-                margin-bottom: 40px;
-                padding: 0;
-            }
-            body[dir="rtl"] .timeline-step {
-                text-align: right;
-                flex-direction: row-reverse;
-            }
-            .timeline-dot {
-                margin: 0 0 0 20px;
-                flex-shrink: 0;
-                width: 60px; height: 60px;
-                font-size: 1.5rem;
-            }
-            body[dir="rtl"] .timeline-dot {
-                margin: 0 20px 0 0;
-            }
-            .timeline-step-content {
-                flex: 1;
-            }
+            .request-title { font-size: 1.8rem; }
+            .request-btn { padding: 15px 40px; font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -606,13 +530,11 @@
         </div>
     </div>
 
-    <!-- Contact Cards with 3D Tilt -->
     <div class="contact-section">
         <h2 class="section-title" id="contactTitle">Get In Touch</h2>
         <p class="section-subtitle" id="contactSubtitle">Choose your preferred way to reach us. We're here to help!</p>
         <div class="contact-grid">
-            <div class="contact-card tilt-card">
-                <div class="tilt-glow"></div>
+            <div class="contact-card">
                 <div class="contact-icon-wrapper">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -622,8 +544,7 @@
                 <div class="contact-value" id="contactEmail">Zeroboom.web@yahoo.com</div>
                 <a href="mailto:Zeroboom.web@yahoo.com" class="contact-link" id="emailBtn">Send Email</a>
             </div>
-            <div class="contact-card tilt-card">
-                <div class="tilt-glow"></div>
+            <div class="contact-card">
                 <div class="contact-icon-wrapper">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
@@ -636,51 +557,12 @@
         </div>
     </div>
 
-    <!-- NEW: Timeline Section -->
-    <div class="timeline-section">
-        <h2 class="section-title" id="timelineTitle">What Happens After You Contact Us?</h2>
-        <p class="section-subtitle" id="timelineSubtitle">A clear, step-by-step journey from your first message to project launch</p>
-        <div class="timeline-container">
-            <div class="timeline-step">
-                <div class="timeline-dot">
-                    
-                    <span class="timeline-step-number">1</span>
-                </div>
-                <div class="timeline-step-content">
-                    <h3 class="timeline-title" id="t1Title">Send Message</h3>
-                    <p class="timeline-desc" id="t1Desc">Fill out the form or message us on Telegram/Email. Share your ideas, budget, and timeline.</p>
-                </div>
-            </div>
-            <div class="timeline-step">
-                <div class="timeline-dot">
-                    
-                    <span class="timeline-step-number">2</span>
-                </div>
-                <div class="timeline-step-content">
-                    <h3 class="timeline-title" id="t2Title">Quick Response</h3>
-                    <p class="timeline-desc" id="t2Desc">We review your message and respond within 24 hours with initial questions.</p>
-                </div>
-            </div>
-            <div class="timeline-step">
-                <div class="timeline-dot">
-                    🎯
-                    <span class="timeline-step-number">3</span>
-                </div>
-                <div class="timeline-step-content">
-                    <h3 class="timeline-title" id="t3Title">Free Consultation</h3>
-                    <p class="timeline-desc" id="t3Desc">A 30-minute online session to understand your needs and explore solutions.</p>
-                </div>
-            </div>
-            <div class="timeline-step">
-                <div class="timeline-dot">
-                    🚀
-                    <span class="timeline-step-number">4</span>
-                </div>
-                <div class="timeline-step-content">
-                    <h3 class="timeline-title" id="t4Title">Start Project</h3>
-                    <p class="timeline-desc" id="t4Desc">After agreement on plan and price, we start working and keep you updated.</p>
-                </div>
-            </div>
+    <!-- NEW: Request Button Section -->
+    <div class="request-section">
+        <div class="request-box">
+            <h2 class="request-title" id="requestTitle">Ready to Start Your Project?</h2>
+            <p class="request-desc" id="requestDesc">Get a free consultation and let's bring your ideas to life!</p>
+            <a href="https://t.me/Zerooboom" target="_blank" class="request-btn" id="requestBtn"> Request Free Consultation</a>
         </div>
     </div>
 
@@ -762,12 +644,9 @@
                 telegramLabel: "Telegram",
                 contactTelegram: "@Zerooboom",
                 telegramBtn: "Open Chat",
-                timelineTitle: "What Happens After You Contact Us?",
-                timelineSubtitle: "A clear, step-by-step journey from your first message to project launch",
-                t1Title: "Send Message", t1Desc: "Fill out the form or message us on Telegram/Email. Share your ideas, budget, and timeline.",
-                t2Title: "Quick Response", t2Desc: "We review your message and respond within 24 hours with initial questions.",
-                t3Title: "Free Consultation", t3Desc: "A 30-minute online session to understand your needs and explore solutions.",
-                t4Title: "Start Project", t4Desc: "After agreement on plan and price, we start working and keep you updated.",
+                requestTitle: "Ready to Start Your Project?",
+                requestDesc: "Get a free consultation and let's bring your ideas to life!",
+                requestBtn: "🚀 Request Free Consultation",
                 ctaTitle: "Ready to Start?", ctaDesc: "Get in touch today for a free consultation. No commitment, no pressure.", ctaBtn: "Talk to Us on Telegram",
                 langText: "فارسی",
                 navHome: "Home", navAbout: "About Us", navServices: "Services", navContact: "Contact Us",
@@ -790,8 +669,8 @@
                 paymentTitle: "شرایط پرداخت منصفانه",
                 paymentSubtitle: "ما به اعتماد و شفافیت اعتقاد داریم. شما فقط وقتی نتیجه را ببینید، پرداخت می‌کنید.",
                 pStep1Title: "شروع رایگان", pStep1Desc: "کار روی پروژه شما بدون هیچ هزینه اولیه شروع می‌شود. بدون ریسک، بدون فشار.", pStep1Amount: "۰ تومان",
-                pStep2Title: "مرحله اول", pStep2Desc: "پس از تکمیل ۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.", pStep2Amount: "۵۰٪ مبلغ کل",
-                pStep3Title: "تحویل نهایی", pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.", pStep3Amount: "۰٪ باقی‌مانده",
+                pStep2Title: "مرحله اول", pStep2Desc: "پس از تکمیل ۲۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.", pStep2Amount: "۵۰٪ مبلغ کل",
+                pStep3Title: "تحویل نهایی", pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.", pStep3Amount: "۵۰٪ باقی‌مانده",
                 guaranteeTitle: "تضمین ما",
                 guaranteeDesc: "تا وقتی راضی نباشید، پولی پرداخت نمی‌کنید. اگر در هر مرحله از پیشرفت کار راضی نبودید، می‌توانید پروژه را بدون هزینه اضافی متوقف کنید. رضایت شما اولویت ماست.",
                 contactTitle: "تماس با ما",
@@ -802,19 +681,16 @@
                 telegramLabel: "تلگرام",
                 contactTelegram: "@Zerooboom",
                 telegramBtn: "باز کردن چت",
-                timelineTitle: "بعد از تماس چه اتفاقی می‌افته؟",
-                timelineSubtitle: "یه مسیر شفاف و مرحله‌به‌مرحله از اولین پیام تا راه‌اندازی پروژه",
-                t1Title: "ارسال پیام", t1Desc: "فرم رو پر کنید یا در تلگرام/ایمیل پیام بدید. ایده‌ها، بودجه و زمان‌بندی‌تون رو بگید.",
-                t2Title: "پاسخ سریع", t2Desc: "پیام شما رو بررسی می‌کنیم و ظرف ۲۴ ساعت با سوالات تکمیلی پاسخ میدیم.",
-                t3Title: "مشاوره رایگان", t3Desc: "یه جلسه آنلاین ۳ دقیقه‌ای برای درک دقیق نیازهای شما و بررسی راه‌حل‌ها.",
-                t4Title: "شروع پروژه", t4Desc: "بعد از توافق روی طرح و قیمت، کار رو شروع می‌کنیم و شما رو در جریان پیشرفت قرار میدیم.",
+                requestTitle: "آماده شروع پروژه‌تان هستید؟",
+                requestDesc: "مشاوره رایگان بگیرید و بیایید ایده‌هاتون رو به واقعیت تبدیل کنیم!",
+                requestBtn: "🚀 درخواست مشاوره رایگان",
                 ctaTitle: "آماده شروع هستید؟", ctaDesc: "همین امروز برای مشاوره رایگان با ما تماس بگیرید. بدون تعهد، بدون فشار.", ctaBtn: "گفتگو در تلگرام",
                 langText: "English",
                 navHome: "خانه", navAbout: "درباره ما", navServices: "خدمات", navContact: "تماس با ما",
                 chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین",
                 footerDesc: "از صفر تا بام. ما تجربه‌های دیجیتالی می‌سازیم که نتیجه‌بخش هستند.",
                 footerEmail: "Zeroboom.web@yahoo.com",
-                footerCopy: "© ۲۰۲۶ زیروبام. تمامی حقوق محفوظ است.",
+                footerCopy: "© ۲۰۶ زیروبام. تمامی حقوق محفوظ است.",
                 dir: "rtl", lang: "fa"
             }
         };
@@ -824,7 +700,7 @@
         function applyLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
-            const ids = ['tagline', 'knowledgeTitle', 'knowledgeSubtitle', 'jsTitle', 'jsDesc', 'seoTitle', 'seoDesc', 'htmlTitle', 'htmlDesc', 'responsiveTitle', 'responsiveDesc', 'wpTitle', 'wpDesc', 'uxTitle', 'uxDesc', 'paymentTitle', 'paymentSubtitle', 'pStep1Title', 'pStep1Desc', 'pStep1Amount', 'pStep2Title', 'pStep2Desc', 'pStep2Amount', 'pStep3Title', 'pStep3Desc', 'pStep3Amount', 'guaranteeTitle', 'guaranteeDesc', 'contactTitle', 'contactSubtitle', 'emailLabel', 'contactEmail', 'emailBtn', 'telegramLabel', 'contactTelegram', 'telegramBtn', 'timelineTitle', 'timelineSubtitle', 't1Title', 't1Desc', 't2Title', 't2Desc', 't3Title', 't3Desc', 't4Title', 't4Desc', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
+            const ids = ['tagline', 'knowledgeTitle', 'knowledgeSubtitle', 'jsTitle', 'jsDesc', 'seoTitle', 'seoDesc', 'htmlTitle', 'htmlDesc', 'responsiveTitle', 'responsiveDesc', 'wpTitle', 'wpDesc', 'uxTitle', 'uxDesc', 'paymentTitle', 'paymentSubtitle', 'pStep1Title', 'pStep1Desc', 'pStep1Amount', 'pStep2Title', 'pStep2Desc', 'pStep2Amount', 'pStep3Title', 'pStep3Desc', 'pStep3Amount', 'guaranteeTitle', 'guaranteeDesc', 'contactTitle', 'contactSubtitle', 'emailLabel', 'contactEmail', 'emailBtn', 'telegramLabel', 'contactTelegram', 'telegramBtn', 'requestTitle', 'requestDesc', 'requestBtn', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = t[id];
@@ -849,47 +725,6 @@
             link.addEventListener('click', () => document.getElementById('navMenu').classList.remove('active'));
         });
 
-        // ===== 3D Tilt Effect =====
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            const glow = card.querySelector('.tilt-glow');
-            
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -10;
-                const rotateY = ((x - centerX) / centerX) * 10;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-                
-                if (glow) {
-                    glow.style.left = x + 'px';
-                    glow.style.top = y + 'px';
-                }
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-            });
-        });
-
-        // ===== Timeline Scroll Animation =====
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.timeline-step').forEach(step => {
-            timelineObserver.observe(step);
-        });
-
-        // Background Animation
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
