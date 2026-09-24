@@ -3,12 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | ZeroBoom</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Services | ZeroBoom - Professional Web Design</title>
+    <meta name="description" content="ZeroBoom offers professional web design, SEO optimization, and e-commerce solutions. From Zero to Summit.">
+    <meta name="keywords" content="web design services, SEO, e-commerce, WordPress, UI/UX design, ZeroBoom">
+    <meta name="author" content="ZeroBoom">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Services | ZeroBoom">
+    <meta property="og:description" content="Professional web design, SEO, and e-commerce solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://allaccforme1-sudo.github.io/zeroboom-website/services.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Services | ZeroBoom">
+    <meta name="twitter:description" content="Professional web design, SEO, and e-commerce solutions.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23f093fb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='55' font-weight='900' fill='url(%23g)' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+    
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="scrolltop.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Segoe UI', 'Arial', sans-serif;
             background: #0a0a0a; color: #ffffff;
@@ -16,10 +37,8 @@
             transition: font-family 0.3s ease;
         }
         body.fa { font-family: 'Vazirmatn', 'Tahoma', sans-serif; }
-
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
-        /* Navbar */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; padding: 20px 50px;
             background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(15px);
@@ -47,7 +66,6 @@
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 20; }
         .menu-toggle span { width: 25px; height: 3px; background: #ffffff; border-radius: 3px; }
 
-        /* Language Switcher */
         .lang-switcher {
             position: fixed; top: 85px; right: 30px; z-index: 100;
             background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
@@ -61,7 +79,6 @@
             border-color: transparent; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
 
-        /* Main Container */
         .container { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 120px 20px 60px; }
 
         .page-title {
@@ -71,7 +88,7 @@
             margin-bottom: 15px; animation: fadeInUp 1s ease-out;
         }
         .page-subtitle {
-            font-size: 1.2rem; color: #cccccc; text-align: center; margin-bottom: 80px;
+            font-size: 1.2rem; color: #cccccc; text-align: center; margin-bottom: 60px;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -81,76 +98,61 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* Services Grid */
         .services-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px; margin-bottom: 120px;
+            gap: 30px; margin-bottom: 100px;
         }
         .service-card {
-            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px);
-            border: 1px solid rgba(102, 126, 234, 0.2); border-radius: 20px;
-            padding: 40px 30px; text-align: center; transition: all 0.4s ease;
-            animation: fadeInUp 1s ease-out both;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 20px; padding: 40px 30px; text-align: center;
+            transition: all 0.4s ease;
         }
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
         .service-card:hover {
-            transform: translateY(-15px); border-color: rgba(240, 147, 251, 0.6);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2); background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px);
+            border-color: rgba(240, 147, 251, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
         }
-        .service-icon { 
+        .service-icon {
             width: 80px; height: 80px; margin: 0 auto 20px;
             display: flex; align-items: center; justify-content: center;
-            transition: transform 0.3s ease;
         }
         .service-icon svg { width: 60px; height: 60px; }
-        .service-card:hover .service-icon { transform: scale(1.2) rotate(10deg); }
         .service-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; }
         .service-desc { color: #aaaaaa; line-height: 1.6; font-size: 0.95rem; }
 
-        /* Technologies Section */
         .tech-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 25px; margin-bottom: 120px;
+            gap: 25px; margin-bottom: 100px;
         }
         .tech-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(102, 126, 234, 0.2);
             border-radius: 15px; padding: 30px 20px;
             text-align: center; transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out both;
         }
-        .tech-card:nth-child(1) { animation-delay: 0.1s; }
-        .tech-card:nth-child(2) { animation-delay: 0.2s; }
-        .tech-card:nth-child(3) { animation-delay: 0.3s; }
-        .tech-card:nth-child(4) { animation-delay: 0.4s; }
-        .tech-card:nth-child(5) { animation-delay: 0.5s; }
-        .tech-card:nth-child(6) { animation-delay: 0.6s; }
         .tech-card:hover {
             transform: translateY(-10px) scale(1.05);
             border-color: rgba(240, 147, 251, 0.6);
             box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
         }
-        .tech-icon { 
+        .tech-icon {
             width: 60px; height: 60px; margin: 0 auto 15px;
             display: flex; align-items: center; justify-content: center;
         }
         .tech-icon svg { width: 50px; height: 50px; }
         .tech-name { font-size: 1rem; font-weight: 600; color: #ffffff; }
 
-        /* Process Section */
         .process-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px; margin-bottom: 120px; position: relative;
+            gap: 30px; margin-bottom: 100px;
         }
         .process-step {
             text-align: center; padding: 30px 20px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(102, 126, 234, 0.2);
             border-radius: 20px; transition: all 0.4s ease;
-            position: relative;
         }
         .process-step:hover {
             transform: translateY(-10px);
@@ -169,10 +171,9 @@
         .step-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
         .step-desc { color: #aaaaaa; font-size: 0.95rem; line-height: 1.6; }
 
-        /* Why Choose Us */
         .why-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px; margin-bottom: 120px;
+            gap: 30px; margin-bottom: 100px;
         }
         .why-card {
             background: rgba(255, 255, 255, 0.03);
@@ -185,7 +186,7 @@
             border-color: rgba(240, 147, 251, 0.5);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
         }
-        .why-icon { 
+        .why-icon {
             width: 80px; height: 80px; margin: 0 auto 20px;
             display: flex; align-items: center; justify-content: center;
         }
@@ -193,7 +194,6 @@
         .why-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; }
         .why-desc { color: #aaaaaa; line-height: 1.6; font-size: 0.95rem; }
 
-        /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
             border: 1px solid rgba(102, 126, 234, 0.3); border-radius: 30px;
@@ -209,6 +209,33 @@
             transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
         .cta-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6); }
+
+        .site-footer {
+            position: relative; z-index: 2;
+            background: rgba(5, 5, 5, 0.9); border-top: 1px solid rgba(102, 126, 234, 0.3);
+            padding: 50px 20px 30px; margin-top: 50px; backdrop-filter: blur(10px);
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap;
+            justify-content: space-between; align-items: center; gap: 30px;
+        }
+        .footer-brand h3 {
+            font-size: 1.8rem; font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;
+        }
+        .footer-brand p { color: #888; font-size: 0.9rem; max-width: 300px; }
+        .footer-links { display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a {
+            color: #cccccc; text-decoration: none; font-size: 0.95rem;
+            transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
+        }
+        .footer-links a:hover { color: #f093fb; transform: translateX(5px); }
+        body[dir="rtl"] .footer-links a:hover { transform: translateX(-5px); }
+        .footer-bottom {
+            max-width: 1200px; margin: 40px auto 0; padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; color: #666; font-size: 0.85rem;
+        }
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -227,6 +254,8 @@
             body[dir="rtl"] .lang-switcher { left: 20px; }
             .section-title { font-size: 2rem; }
             .cta-title { font-size: 1.8rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { align-items: center; }
         }
     </style>
 </head>
@@ -245,15 +274,13 @@
     </nav>
 
     <button class="lang-switcher" onclick="toggleLanguage()">
-        <span>🌐</span>
-        <span id="langText">فارسی</span>
+        <span>🌐</span> <span id="langText">فارسی</span>
     </button>
 
     <div class="container">
         <h1 class="page-title" id="pageTitle">Our Services</h1>
         <p class="page-subtitle" id="pageSubtitle">What we can do for your business</p>
 
-        <!-- Services Grid -->
         <h2 class="section-title" id="servicesTitle">What We Offer</h2>
         <div class="services-grid">
             <div class="service-card">
@@ -303,68 +330,46 @@
             </div>
         </div>
 
-        <!-- Technologies Section -->
         <h2 class="section-title" id="techTitle">Technologies We Use</h2>
         <div class="tech-grid">
             <div class="tech-card">
                 <div class="tech-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 </div>
                 <div class="tech-name" id="tech1">HTML5</div>
             </div>
             <div class="tech-card">
                 <div class="tech-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2">
-                        <circle cx="13.5" cy="6.5" r="2.5"></circle>
-                        <path d="M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5z"></path>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"></circle><path d="M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5z"></path></svg>
                 </div>
                 <div class="tech-name" id="tech2">CSS3</div>
             </div>
             <div class="tech-card">
                 <div class="tech-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"></circle>
-                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 </div>
                 <div class="tech-name" id="tech3">JavaScript</div>
             </div>
             <div class="tech-card">
                 <div class="tech-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                 </div>
                 <div class="tech-name" id="tech4">Responsive</div>
             </div>
             <div class="tech-card">
                 <div class="tech-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                 </div>
                 <div class="tech-name" id="tech5">WordPress</div>
             </div>
             <div class="tech-card">
                 <div class="tech-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
                 </div>
                 <div class="tech-name" id="tech6">SEO</div>
             </div>
         </div>
 
-        <!-- Process Section -->
         <h2 class="section-title" id="processTitle">How We Work</h2>
         <div class="process-grid">
             <div class="process-step">
@@ -389,55 +394,38 @@
             </div>
         </div>
 
-        <!-- Why Choose Us -->
         <h2 class="section-title" id="whyTitle">Why Choose ZeroBoom?</h2>
         <div class="why-grid">
             <div class="why-card">
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <circle cx="12" cy="12" r="6"></circle>
-                        <circle cx="12" cy="12" r="2"></circle>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                 </div>
                 <h3 class="why-title" id="w1Title">Tailored Solutions</h3>
                 <p class="why-desc" id="w1Desc">Every project is unique. We customize our approach to fit your specific needs.</p>
             </div>
             <div class="why-card">
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 </div>
                 <h3 class="why-title" id="w2Title">Fast Delivery</h3>
                 <p class="why-desc" id="w2Desc">We respect your time and deliver high-quality results on schedule.</p>
             </div>
             <div class="why-card">
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                        <path d="M9 18V5l12-2v13"></path>
-                        <circle cx="6" cy="18" r="3"></circle>
-                        <circle cx="18" cy="16" r="3"></circle>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
                 </div>
                 <h3 class="why-title" id="w3Title">Creative Design</h3>
                 <p class="why-desc" id="w3Desc">We blend aesthetics with functionality to create stunning experiences.</p>
             </div>
             <div class="why-card">
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                 </div>
                 <h3 class="why-title" id="w4Title">Ongoing Support</h3>
                 <p class="why-desc" id="w4Desc">Our relationship doesn't end at launch. We're here for the long run.</p>
             </div>
         </div>
 
-        <!-- CTA Section -->
         <div class="cta-section">
             <h2 class="cta-title" id="ctaTitle">Ready to Grow Your Business?</h2>
             <p class="cta-desc" id="ctaDesc">Let's build something amazing together. Get a free consultation today and take your brand to the summit.</p>
@@ -445,7 +433,28 @@
         </div>
     </div>
 
-    <!-- Telegram & Chatbot -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>ZeroBoom</h3>
+                <p id="footerDesc">From Zero to Summit. We build digital experiences that drive results.</p>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:Zeroboom.web@yahoo.com">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span id="footerEmail">Zeroboom.web@yahoo.com</span>
+                </a>
+                <a href="https://t.me/Zerooboom" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+                    <span id="footerTelegram">@Zerooboom</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="footerCopy">© 2026 ZeroBoom. All rights reserved.</p>
+        </div>
+    </footer>
+
     <a href="https://t.me/Zerooboom" target="_blank" class="telegram-toggle" title="Contact us on Telegram">
         <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
     </a>
@@ -454,7 +463,7 @@
     </button>
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
-            <div class="chatbot-avatar"></div>
+            <div class="chatbot-avatar">🤖</div>
             <div class="chatbot-title"><h3 id="chatbotTitle">ZeroBoom Assistant</h3><p id="chatbotStatus">Online</p></div>
             <button class="chatbot-close" onclick="toggleChatbot()">×</button>
         </div>
@@ -466,6 +475,7 @@
     </div>
 
     <script src="chatbot.js"></script>
+    <script src="scrolltop.js"></script>
     <script>
         const translations = {
             en: {
@@ -487,9 +497,14 @@
                 w2Title: "Fast Delivery", w2Desc: "We respect your time and deliver high-quality results on schedule.",
                 w3Title: "Creative Design", w3Desc: "We blend aesthetics with functionality to create stunning experiences.",
                 w4Title: "Ongoing Support", w4Desc: "Our relationship doesn't end at launch. We're here for the long run.",
-                ctaTitle: "Ready to Grow Your Business?", ctaDesc: "Let's build something amazing together. Get a free consultation today and take your brand to the summit.", ctaBtn: "Start Your Project 🚀",
-                langText: "فارسی", navHome: "Home", navAbout: "About Us", navServices: "Services", navContact: "Contact Us",
-                chatbotTitle: "ZeroBoom Assistant", chatbotStatus: "Online", dir: "ltr", lang: "en"
+                ctaTitle: "Ready to Grow Your Business?", ctaDesc: "Let's build something amazing together. Get a free consultation today and take your brand to the summit.", ctaBtn: "Start Your Project ",
+                langText: "فارسی",
+                navHome: "Home", navAbout: "About Us", navServices: "Services", navContact: "Contact Us",
+                chatbotTitle: "ZeroBoom Assistant", chatbotStatus: "Online",
+                footerDesc: "From Zero to Summit. We build digital experiences that drive results.",
+                footerEmail: "Zeroboom.web@yahoo.com",
+                footerCopy: "© 2026 ZeroBoom. All rights reserved.",
+                dir: "ltr", lang: "en"
             },
             fa: {
                 pageTitle: "خدمات ما", pageSubtitle: "ما چه کارهایی می‌توانیم برای کسب‌وکار شما انجام دهیم",
@@ -511,8 +526,13 @@
                 w3Title: "طراحی خلاقانه", w3Desc: "ما زیبایی‌شناسی را با عملکرد ترکیب می‌کنیم تا تجربه‌های شگفت‌انگیز بسازیم.",
                 w4Title: "پشتیبانی مداوم", w4Desc: "رابطه ما با راه‌اندازی تمام نمی‌شود. ما برای بلندمدت اینجا هستیم.",
                 ctaTitle: "آماده رشد کسب‌وکار خود هستید؟", ctaDesc: "بیایید با هم یک چیز شگفت‌انگیز بسازیم. همین امروز مشاوره رایگان بگیرید و برند خود را به اوج برسانید.", ctaBtn: "شروع پروژه 🚀",
-                langText: "English", navHome: "خانه", navAbout: "درباره ما", navServices: "خدمات", navContact: "تماس با ما",
-                chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین", dir: "rtl", lang: "fa"
+                langText: "English",
+                navHome: "خانه", navAbout: "درباره ما", navServices: "خدمات", navContact: "تماس با ما",
+                chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین",
+                footerDesc: "از صفر تا بام. ما تجربه‌های دیجیتالی می‌سازیم که نتیجه‌بخش هستند.",
+                footerEmail: "Zeroboom.web@yahoo.com",
+                footerCopy: "© ۲۰۲۶ زیروبام. تمامی حقوق محفوظ است.",
+                dir: "rtl", lang: "fa"
             }
         };
 
@@ -521,13 +541,11 @@
         function applyLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
-            
-            const ids = ['pageTitle', 'pageSubtitle', 'servicesTitle', 's1Title', 's1Desc', 's2Title', 's2Desc', 's3Title', 's3Desc', 's4Title', 's4Desc', 'techTitle', 'tech1', 'tech2', 'tech3', 'tech4', 'tech5', 'tech6', 'processTitle', 'p1Title', 'p1Desc', 'p2Title', 'p2Desc', 'p3Title', 'p3Desc', 'p4Title', 'p4Desc', 'whyTitle', 'w1Title', 'w1Desc', 'w2Title', 'w2Desc', 'w3Title', 'w3Desc', 'w4Title', 'w4Desc', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus'];
+            const ids = ['pageTitle', 'pageSubtitle', 'servicesTitle', 's1Title', 's1Desc', 's2Title', 's2Desc', 's3Title', 's3Desc', 's4Title', 's4Desc', 'techTitle', 'tech1', 'tech2', 'tech3', 'tech4', 'tech5', 'tech6', 'processTitle', 'p1Title', 'p1Desc', 'p2Title', 'p2Desc', 'p3Title', 'p3Desc', 'p4Title', 'p4Desc', 'whyTitle', 'w1Title', 'w1Desc', 'w2Title', 'w2Desc', 'w3Title', 'w3Desc', 'w4Title', 'w4Desc', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = t[id];
             });
-
             document.documentElement.lang = t.lang;
             document.documentElement.dir = t.dir;
             if (lang === 'fa') document.body.classList.add('fa');
@@ -548,7 +566,6 @@
             link.addEventListener('click', () => document.getElementById('navMenu').classList.remove('active'));
         });
 
-        // Background Animation
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
