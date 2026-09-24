@@ -3,12 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZeroBoom | From Zero to Summit</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Contact Us | ZeroBoom - Get In Touch</title>
+    <meta name="description" content="Contact ZeroBoom for a free consultation. Fair payment terms, 100% satisfaction guarantee. From Zero to Summit.">
+    <meta name="keywords" content="contact ZeroBoom, web design quote, free consultation, web development">
+    <meta name="author" content="ZeroBoom">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact Us | ZeroBoom">
+    <meta property="og:description" content="Get in touch for a free consultation. Fair payment terms.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://allaccforme1-sudo.github.io/zeroboom-website/contact.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us | ZeroBoom">
+    <meta name="twitter:description" content="Get in touch for a free consultation.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23f093fb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='55' font-weight='900' fill='url(%23g)' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+    
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="scrolltop.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Segoe UI', 'Arial', sans-serif;
             background: #0a0a0a; color: #ffffff;
@@ -16,10 +37,8 @@
             transition: font-family 0.3s ease;
         }
         body.fa { font-family: 'Vazirmatn', 'Tahoma', sans-serif; }
-
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
-        /* Navbar */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; padding: 20px 50px;
             background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(15px);
@@ -47,7 +66,6 @@
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 20; }
         .menu-toggle span { width: 25px; height: 3px; background: #ffffff; border-radius: 3px; }
 
-        /* Language Switcher */
         .lang-switcher {
             position: fixed; top: 85px; right: 30px; z-index: 100;
             background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
@@ -63,7 +81,6 @@
         }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Hero Section */
         .hero {
             position: relative; z-index: 2;
             display: flex; flex-direction: column;
@@ -80,9 +97,7 @@
         }
         @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @keyframes logoGlow { 0%, 100% { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); } 50% { filter: drop-shadow(0 0 40px rgba(118, 75, 162, 0.8)); } }
-
         .tagline { font-size: 1.8rem; color: #ffffff; margin-bottom: 40px; opacity: 0.9; }
-
         .scroll-indicator {
             position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
             animation: bounce 2s infinite;
@@ -90,11 +105,7 @@
         .scroll-indicator svg { width: 30px; height: 30px; stroke: #667eea; }
         @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
 
-        /* Knowledge Section */
-        .knowledge-section {
-            position: relative; z-index: 2;
-            max-width: 1200px; margin: 0 auto; padding: 80px 20px;
-        }
+        .knowledge-section { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
         .section-title {
             font-size: 2.5rem; text-align: center; margin-bottom: 15px;
             background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
@@ -104,98 +115,59 @@
             text-align: center; color: #aaaaaa; font-size: 1.1rem;
             margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;
         }
-
-        .knowledge-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
+        .knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .knowledge-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 20px;
-            padding: 35px 30px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.2); border-radius: 20px;
+            padding: 35px 30px; transition: all 0.4s ease; position: relative; overflow: hidden;
         }
         .knowledge-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, #667eea 0%, #f093fb 100%);
-            transform: scaleX(0); transform-origin: left;
-            transition: transform 0.4s ease;
+            transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
         }
         .knowledge-card:hover::before { transform: scaleX(1); }
         .knowledge-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(240, 147, 251, 0.5);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px); border-color: rgba(240, 147, 251, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2); background: rgba(255, 255, 255, 0.05);
         }
-
         .knowledge-icon {
             width: 70px; height: 70px;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(240, 147, 251, 0.2) 100%);
-            border-radius: 15px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
+            border-radius: 15px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; transition: transform 0.3s ease;
         }
         .knowledge-card:hover .knowledge-icon { transform: rotate(10deg) scale(1.1); }
         .knowledge-icon svg { width: 40px; height: 40px; }
-
         .knowledge-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
         .knowledge-desc { color: #aaaaaa; line-height: 1.7; font-size: 0.95rem; }
 
-        /* Payment Section */
-        .payment-section {
-            position: relative; z-index: 2;
-            max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px;
-        }
-
-        .payment-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px; margin-bottom: 40px;
-        }
-
+        .payment-section { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px; }
+        .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px; }
         .payment-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(102, 126, 234, 0.25);
-            border-radius: 20px;
-            padding: 35px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.25); border-radius: 20px;
+            padding: 35px 30px; text-align: center; transition: all 0.4s ease;
+            position: relative; overflow: hidden;
         }
         .payment-card::after {
-            content: '';
-            position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, #667eea 0%, #f093fb 100%);
-            transform: scaleX(0); transform-origin: right;
-            transition: transform 0.4s ease;
+            transform: scaleX(0); transform-origin: right; transition: transform 0.4s ease;
         }
         .payment-card:hover::after { transform: scaleX(1); transform-origin: left; }
         .payment-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(240, 147, 251, 0.5);
+            transform: translateY(-8px); border-color: rgba(240, 147, 251, 0.5);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
         }
-
         .payment-step {
             width: 60px; height: 60px; margin: 0 auto 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem; font-weight: 900; color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); transition: transform 0.3s ease;
         }
         .payment-card:hover .payment-step { transform: scale(1.1) rotate(360deg); }
-
         .payment-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
         .payment-desc { color: #aaaaaa; line-height: 1.6; font-size: 0.95rem; }
         .payment-amount {
@@ -204,12 +176,11 @@
             border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: #667eea;
         }
 
-        /* Guarantee Box */
         .guarantee-box {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
-            border: 1px solid rgba(102, 126, 234, 0.4);
-            border-radius: 20px; padding: 35px 30px; text-align: center;
-            backdrop-filter: blur(10px); position: relative; overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.4); border-radius: 20px;
+            padding: 35px 30px; text-align: center; backdrop-filter: blur(10px);
+            position: relative; overflow: hidden;
         }
         .guarantee-box::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -217,7 +188,6 @@
             background-size: 200% 100%; animation: shimmer 3s linear infinite;
         }
         @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
         .guarantee-icon {
             width: 70px; height: 70px; margin: 0 auto 20px;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(240, 147, 251, 0.2) 100%);
@@ -231,11 +201,73 @@
         }
         .guarantee-desc { color: #cccccc; line-height: 1.7; font-size: 1rem; max-width: 600px; margin: 0 auto; }
 
-        /* CTA Bottom */
-        .cta-bottom {
-            position: relative; z-index: 2;
-            max-width: 900px; margin: 40px auto 80px; padding: 0 20px;
+        .contact-section { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; padding: 60px 20px 80px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .contact-card {
+            position: relative; background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(20px);
+            border-radius: 20px; padding: 40px 30px; text-align: center;
+            overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: cardEntry 0.8s ease-out both;
         }
+        .contact-card:nth-child(1) { animation-delay: 0.1s; }
+        .contact-card:nth-child(2) { animation-delay: 0.3s; }
+        @keyframes cardEntry { from { opacity: 0; transform: translateY(40px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .contact-card::before {
+            content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #f093fb, #667eea, #764ba2, #667eea);
+            background-size: 400% 400%; border-radius: 22px; z-index: -1;
+            opacity: 0; transition: opacity 0.5s ease; animation: borderGlow 4s ease infinite;
+        }
+        @keyframes borderGlow { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .contact-card:hover::before { opacity: 1; }
+        .contact-card::after {
+            content: ''; position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px;
+            background: rgba(10, 10, 10, 0.95); border-radius: 18px; z-index: -1;
+        }
+        .contact-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3); }
+        .contact-icon-wrapper {
+            width: 90px; height: 90px; margin: 0 auto 25px; position: relative;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .contact-icon-wrapper::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%; background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(240, 147, 251, 0.3));
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+        @keyframes iconPulse { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.15); opacity: 0.3; } }
+        .contact-icon {
+            position: relative; z-index: 1; width: 50px; height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: all 0.4s ease;
+        }
+        .contact-card:hover .contact-icon { transform: rotate(360deg) scale(1.1); background: linear-gradient(135deg, #f093fb 0%, #667eea 100%); }
+        .contact-icon svg { width: 26px; height: 26px; fill: white; }
+        .contact-label {
+            font-size: 0.85rem; color: #888; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 10px; font-weight: 600;
+        }
+        .contact-value {
+            font-size: 1.2rem; font-weight: 700; color: #ffffff;
+            word-break: break-all; transition: color 0.3s ease;
+        }
+        .contact-card:hover .contact-value {
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .contact-link {
+            display: inline-block; margin-top: 20px; padding: 10px 25px;
+            background: rgba(102, 126, 234, 0.1); border: 1px solid rgba(102, 126, 234, 0.4);
+            border-radius: 50px; color: #667eea; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;
+        }
+        .contact-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; border-color: transparent; transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-bottom { position: relative; z-index: 2; max-width: 900px; margin: 40px auto 80px; padding: 0 20px; }
         .cta-box {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(240, 147, 251, 0.15) 100%);
             border: 1px solid rgba(102, 126, 234, 0.3); border-radius: 25px;
@@ -251,141 +283,6 @@
         }
         .cta-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6); }
 
-        /* ===== Contact Cards Section (NEW - خفن!) ===== */
-        .contact-section {
-            position: relative; z-index: 2;
-            max-width: 1000px; margin: 0 auto; padding: 60px 20px 80px;
-        }
-        .contact-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .contact-card {
-            position: relative;
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: cardEntry 0.8s ease-out both;
-        }
-        .contact-card:nth-child(1) { animation-delay: 0.1s; }
-        .contact-card:nth-child(2) { animation-delay: 0.3s; }
-
-        @keyframes cardEntry {
-            from { opacity: 0; transform: translateY(40px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        /* Animated Border Glow */
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, #667eea, #f093fb, #667eea, #764ba2, #667eea);
-            background-size: 400% 400%;
-            border-radius: 22px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            animation: borderGlow 4s ease infinite;
-        }
-        @keyframes borderGlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        .contact-card:hover::before { opacity: 1; }
-
-        .contact-card::after {
-            content: '';
-            position: absolute;
-            top: 2px; left: 2px; right: 2px; bottom: 2px;
-            background: rgba(10, 10, 10, 0.95);
-            border-radius: 18px;
-            z-index: -1;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
-        }
-
-        .contact-icon-wrapper {
-            width: 90px; height: 90px;
-            margin: 0 auto 25px;
-            position: relative;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .contact-icon-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(240, 147, 251, 0.3));
-            animation: iconPulse 2s ease-in-out infinite;
-        }
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.15); opacity: 0.3; }
-        }
-        .contact-icon {
-            position: relative; z-index: 1;
-            width: 50px; height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.4s ease;
-        }
-        .contact-card:hover .contact-icon {
-            transform: rotate(360deg) scale(1.1);
-            background: linear-gradient(135deg, #f093fb 0%, #667eea 100%);
-        }
-        .contact-icon svg { width: 26px; height: 26px; fill: white; }
-
-        .contact-label {
-            font-size: 0.85rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        .contact-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #ffffff;
-            word-break: break-all;
-            transition: color 0.3s ease;
-        }
-        .contact-card:hover .contact-value {
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .contact-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 25px;
-            background: rgba(102, 126, 234, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.4);
-            border-radius: 50px;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        .contact-link:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Footer */
         .site-footer {
             position: relative; z-index: 2;
             background: rgba(5, 5, 5, 0.9); border-top: 1px solid rgba(102, 126, 234, 0.3);
@@ -408,8 +305,6 @@
         }
         .footer-links a:hover { color: #f093fb; transform: translateX(5px); }
         body[dir="rtl"] .footer-links a:hover { transform: translateX(-5px); }
-        .footer-links svg { transition: all 0.3s ease; }
-        .footer-links a:hover svg { stroke: #f093fb; fill: #f093fb; }
         .footer-bottom {
             max-width: 1200px; margin: 40px auto 0; padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; color: #666; font-size: 0.85rem;
@@ -438,7 +333,6 @@
             .guarantee-title { font-size: 1.2rem; }
             .footer-content { flex-direction: column; text-align: center; }
             .footer-links { align-items: center; }
-            body[dir="rtl"] .footer-links a:hover, .footer-links a:hover { transform: translateY(-3px); }
         }
     </style>
 </head>
@@ -460,7 +354,6 @@
         <span>🌐</span> <span id="langText">فارسی</span>
     </button>
 
-    <!-- Hero Section -->
     <div class="hero">
         <h1 class="logo">ZeroBoom</h1>
         <p class="tagline" id="tagline">From Zero to Summit</p>
@@ -471,11 +364,9 @@
         </div>
     </div>
 
-    <!-- Knowledge Section -->
     <div class="knowledge-section">
         <h2 class="section-title" id="knowledgeTitle">What We Work With</h2>
         <p class="section-subtitle" id="knowledgeSubtitle">A brief look at the technologies and concepts that power modern websites</p>
-
         <div class="knowledge-grid">
             <div class="knowledge-card">
                 <div class="knowledge-icon">
@@ -484,7 +375,6 @@
                 <h3 class="knowledge-title" id="jsTitle">JavaScript</h3>
                 <p class="knowledge-desc" id="jsDesc">The programming language that brings websites to life. It creates interactive elements, animations, and dynamic content that respond to user actions in real-time.</p>
             </div>
-
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
@@ -492,7 +382,6 @@
                 <h3 class="knowledge-title" id="seoTitle">SEO</h3>
                 <p class="knowledge-desc" id="seoDesc">Search Engine Optimization helps your website rank higher on Google. Through smart techniques, we make sure your business gets found by the right people at the right time.</p>
             </div>
-
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
@@ -500,7 +389,6 @@
                 <h3 class="knowledge-title" id="htmlTitle">HTML & CSS</h3>
                 <p class="knowledge-desc" id="htmlDesc">The foundation of every website. HTML builds the structure while CSS styles it beautifully. Together, they create the visual experience your visitors see and interact with.</p>
             </div>
-
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
@@ -508,7 +396,6 @@
                 <h3 class="knowledge-title" id="responsiveTitle">Responsive Design</h3>
                 <p class="knowledge-desc" id="responsiveDesc">Websites that look perfect on every device - from phones to desktops. Your site automatically adapts its layout to provide the best experience for every user.</p>
             </div>
-
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
@@ -516,7 +403,6 @@
                 <h3 class="knowledge-title" id="wpTitle">WordPress</h3>
                 <p class="knowledge-desc" id="wpDesc">The world's most popular content management system. It powers over 40% of all websites and makes it easy to manage your content without any coding knowledge.</p>
             </div>
-
             <div class="knowledge-card">
                 <div class="knowledge-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#f093fb" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
@@ -527,11 +413,9 @@
         </div>
     </div>
 
-    <!-- Payment Section -->
     <div class="payment-section">
         <h2 class="section-title" id="paymentTitle">Fair Payment Terms</h2>
         <p class="section-subtitle" id="paymentSubtitle">We believe in trust and transparency. You only pay when you see results.</p>
-
         <div class="payment-grid">
             <div class="payment-card">
                 <div class="payment-step">1</div>
@@ -539,14 +423,12 @@
                 <p class="payment-desc" id="pStep1Desc">We begin working on your project with zero upfront cost. No risk, no pressure.</p>
                 <span class="payment-amount" id="pStep1Amount">$0</span>
             </div>
-
             <div class="payment-card">
                 <div class="payment-step">2</div>
                 <h3 class="payment-title" id="pStep2Title">First Milestone</h3>
                 <p class="payment-desc" id="pStep2Desc">After completing 20% of the project and showing you the initial design, you pay the first installment.</p>
                 <span class="payment-amount" id="pStep2Amount">50% of Total</span>
             </div>
-
             <div class="payment-card">
                 <div class="payment-step">3</div>
                 <h3 class="payment-title" id="pStep3Title">Final Delivery</h3>
@@ -554,7 +436,6 @@
                 <span class="payment-amount" id="pStep3Amount">Remaining 50%</span>
             </div>
         </div>
-
         <div class="guarantee-box">
             <div class="guarantee-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
@@ -567,13 +448,10 @@
         </div>
     </div>
 
-    <!-- ===== NEW: Contact Cards Section ===== -->
     <div class="contact-section">
         <h2 class="section-title" id="contactTitle">Get In Touch</h2>
         <p class="section-subtitle" id="contactSubtitle">Choose your preferred way to reach us. We're here to help!</p>
-
         <div class="contact-grid">
-            <!-- Email Card -->
             <div class="contact-card">
                 <div class="contact-icon-wrapper">
                     <div class="contact-icon">
@@ -584,8 +462,6 @@
                 <div class="contact-value" id="contactEmail">Zeroboom.web@yahoo.com</div>
                 <a href="mailto:Zeroboom.web@yahoo.com" class="contact-link" id="emailBtn">Send Email</a>
             </div>
-
-            <!-- Telegram Card -->
             <div class="contact-card">
                 <div class="contact-icon-wrapper">
                     <div class="contact-icon">
@@ -599,7 +475,6 @@
         </div>
     </div>
 
-    <!-- CTA Bottom -->
     <div class="cta-bottom">
         <div class="cta-box">
             <h2 class="cta-title" id="ctaTitle">Ready to Start?</h2>
@@ -608,7 +483,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
@@ -631,7 +505,6 @@
         </div>
     </footer>
 
-    <!-- Telegram & Chatbot -->
     <a href="https://t.me/Zerooboom" target="_blank" class="telegram-toggle" title="Contact us on Telegram">
         <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
     </a>
@@ -652,6 +525,7 @@
     </div>
 
     <script src="chatbot.js"></script>
+    <script src="scrolltop.js"></script>
     <script>
         const translations = {
             en: {
@@ -696,13 +570,13 @@
                 seoTitle: "سئو (SEO)", seoDesc: "بهینه‌سازی موتور جستجو به وب‌سایت شما کمک می‌کند تا رتبه بالاتری در گوگل داشته باشد. با تکنیک‌های هوشمند، مطمئن می‌شویم کسب‌وکار شما در زمان مناسب توسط افراد مناسب پیدا شود.",
                 htmlTitle: "HTML و CSS", htmlDesc: "پایه و اساس هر وب‌سایت. HTML ساختار را می‌سازد و CSS آن را زیبا استایل می‌دهد. با هم، تجربه بصری‌ای را ایجاد می‌کنند که بازدیدکنندگان شما می‌بینند و با آن تعامل می‌کنند.",
                 responsiveTitle: "طراحی واکنش‌گرا", responsiveDesc: "وب‌سایت‌هایی که در هر دستگاهی - از موبایل تا دسکتاپ - عالی به نظر می‌رسند. سایت شما به طور خودکار چیدمان خود را برای بهترین تجربه کاربری تطبیق می‌دهد.",
-                wpTitle: "وردپرس", wpDesc: "محبوب‌ترین سیستم مدیریت محتوا در جهان. بیش از ۴٪ وب‌سایت‌های دنیا با وردپرس ساخته شده‌اند و مدیریت محتوا را بدون نیاز به کدنویسی آسان می‌کنند.",
+                wpTitle: "وردپرس", wpDesc: "محبوب‌ترین سیستم مدیریت محتوا در جهان. بیش از ۴۰٪ وب‌سایت‌های دنیا با وردپرس ساخته شده‌اند و مدیریت محتوا را بدون نیاز به کدنویسی آسان می‌کنند.",
                 uxTitle: "طراحی UI/UX", uxDesc: "طراحی رابط کاربری و تجربه کاربری بر زیبا و آسان کردن وب‌سایت‌ها تمرکز دارد. طراحی عالی فقط درباره ظاهر نیست - درباره احساس کاربران است.",
                 paymentTitle: "شرایط پرداخت منصفانه",
                 paymentSubtitle: "ما به اعتماد و شفافیت اعتقاد داریم. شما فقط وقتی نتیجه را ببینید، پرداخت می‌کنید.",
                 pStep1Title: "شروع رایگان", pStep1Desc: "کار روی پروژه شما بدون هیچ هزینه اولیه شروع می‌شود. بدون ریسک، بدون فشار.", pStep1Amount: "۰ تومان",
-                pStep2Title: "مرحله اول", pStep2Desc: "پس از تکمیل ۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.", pStep2Amount: "۵۰٪ مبلغ کل",
-                pStep3Title: "تحویل نهایی", pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.", pStep3Amount: "۵۰٪ باقی‌مانده",
+                pStep2Title: "مرحله اول", pStep2Desc: "پس از تکمیل ۲۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.", pStep2Amount: "۵۰٪ مبلغ کل",
+                pStep3Title: "تحویل نهایی", pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.", pStep3Amount: "۵۰٪ باقی‌مانده",
                 guaranteeTitle: "تضمین ما",
                 guaranteeDesc: "تا وقتی راضی نباشید، پولی پرداخت نمی‌کنید. اگر در هر مرحله از پیشرفت کار راضی نبودید، می‌توانید پروژه را بدون هزینه اضافی متوقف کنید. رضایت شما اولویت ماست.",
                 contactTitle: "تماس با ما",
@@ -754,7 +628,6 @@
             link.addEventListener('click', () => document.getElementById('navMenu').classList.remove('active'));
         });
 
-        // Background Animation
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
