@@ -267,6 +267,22 @@
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
+        .cta-bottom { position: relative; z-index: 2; max-width: 900px; margin: 40px auto 80px; padding: 0 20px; }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(240, 147, 251, 0.15) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.3); border-radius: 25px;
+            padding: 50px 40px; text-align: center; backdrop-filter: blur(10px);
+        }
+        .cta-title { font-size: 2rem; font-weight: 900; margin-bottom: 15px; }
+        .cta-desc { font-size: 1.1rem; color: #cccccc; margin-bottom: 30px; }
+        .cta-btn {
+            display: inline-block; padding: 15px 40px; font-size: 1.1rem; font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; text-decoration: none; border-radius: 50px;
+            transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        .cta-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6); }
+
         .site-footer {
             position: relative; z-index: 2;
             background: rgba(5, 5, 5, 0.9); border-top: 1px solid rgba(102, 126, 234, 0.3);
@@ -312,6 +328,8 @@
             body[dir="rtl"] .lang-switcher { left: 20px; }
             .section-title { font-size: 2rem; }
             .knowledge-grid, .payment-grid, .contact-grid { grid-template-columns: 1fr; }
+            .cta-title { font-size: 1.5rem; }
+            .cta-box { padding: 35px 25px; }
             .guarantee-title { font-size: 1.2rem; }
             .footer-content { flex-direction: column; text-align: center; }
             .footer-links { align-items: center; }
@@ -457,7 +475,13 @@
         </div>
     </div>
 
-    <!-- ✅ بخش CTA حذف شد - دیگه این بخش نیست -->
+    <div class="cta-bottom">
+        <div class="cta-box">
+            <h2 class="cta-title" id="ctaTitle">Ready to Start?</h2>
+            <p class="cta-desc" id="ctaDesc">Get in touch today for a free consultation. No commitment, no pressure.</p>
+            <a href="https://t.me/Zerooboom" target="_blank" class="cta-btn" id="ctaBtn">Talk to Us on Telegram</a>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <div class="footer-content">
@@ -489,7 +513,7 @@
     </button>
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
-            <div class="chatbot-avatar"></div>
+            <div class="chatbot-avatar">🤖</div>
             <div class="chatbot-title"><h3 id="chatbotTitle">ZeroBoom Assistant</h3><p id="chatbotStatus">Online</p></div>
             <button class="chatbot-close" onclick="toggleChatbot()">×</button>
         </div>
@@ -529,6 +553,7 @@
                 telegramLabel: "Telegram",
                 contactTelegram: "@Zerooboom",
                 telegramBtn: "Open Chat",
+                ctaTitle: "Ready to Start?", ctaDesc: "Get in touch today for a free consultation. No commitment, no pressure.", ctaBtn: "Talk to Us on Telegram",
                 langText: "فارسی",
                 navHome: "Home", navAbout: "About Us", navServices: "Services", navContact: "Contact Us",
                 chatbotTitle: "ZeroBoom Assistant", chatbotStatus: "Online",
@@ -550,7 +575,7 @@
                 paymentTitle: "شرایط پرداخت منصفانه",
                 paymentSubtitle: "ما به اعتماد و شفافیت اعتقاد داریم. شما فقط وقتی نتیجه را ببینید، پرداخت می‌کنید.",
                 pStep1Title: "شروع رایگان", pStep1Desc: "کار روی پروژه شما بدون هیچ هزینه اولیه شروع می‌شود. بدون ریسک، بدون فشار.", pStep1Amount: "۰ تومان",
-                pStep2Title: "مرحله اول", pStep2Desc: "پس از تکمیل ۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.", pStep2Amount: "۵۰٪ مبلغ کل",
+                pStep2Title: "مرحله اول", pStep2Desc: "پس از تکمیل ۲۰٪ پروژه و نمایش طرح اولیه، قسط اول پرداخت می‌شود.", pStep2Amount: "۵۰٪ مبلغ کل",
                 pStep3Title: "تحویل نهایی", pStep3Desc: "پس از تکمیل کامل وب‌سایت و رضایت ۱۰۰٪ شما، باقی‌مانده مبلغ پرداخت می‌شود.", pStep3Amount: "۵۰٪ باقی‌مانده",
                 guaranteeTitle: "تضمین ما",
                 guaranteeDesc: "تا وقتی راضی نباشید، پولی پرداخت نمی‌کنید. اگر در هر مرحله از پیشرفت کار راضی نبودید، می‌توانید پروژه را بدون هزینه اضافی متوقف کنید. رضایت شما اولویت ماست.",
@@ -562,6 +587,7 @@
                 telegramLabel: "تلگرام",
                 contactTelegram: "@Zerooboom",
                 telegramBtn: "باز کردن چت",
+                ctaTitle: "آماده شروع هستید؟", ctaDesc: "همین امروز برای مشاوره رایگان با ما تماس بگیرید. بدون تعهد، بدون فشار.", ctaBtn: "گفتگو در تلگرام",
                 langText: "English",
                 navHome: "خانه", navAbout: "درباره ما", navServices: "خدمات", navContact: "تماس با ما",
                 chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین",
@@ -577,7 +603,7 @@
         function applyLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
-            const ids = ['tagline', 'knowledgeTitle', 'knowledgeSubtitle', 'jsTitle', 'jsDesc', 'seoTitle', 'seoDesc', 'htmlTitle', 'htmlDesc', 'responsiveTitle', 'responsiveDesc', 'wpTitle', 'wpDesc', 'uxTitle', 'uxDesc', 'paymentTitle', 'paymentSubtitle', 'pStep1Title', 'pStep1Desc', 'pStep1Amount', 'pStep2Title', 'pStep2Desc', 'pStep2Amount', 'pStep3Title', 'pStep3Desc', 'pStep3Amount', 'guaranteeTitle', 'guaranteeDesc', 'contactTitle', 'contactSubtitle', 'emailLabel', 'contactEmail', 'emailBtn', 'telegramLabel', 'contactTelegram', 'telegramBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
+            const ids = ['tagline', 'knowledgeTitle', 'knowledgeSubtitle', 'jsTitle', 'jsDesc', 'seoTitle', 'seoDesc', 'htmlTitle', 'htmlDesc', 'responsiveTitle', 'responsiveDesc', 'wpTitle', 'wpDesc', 'uxTitle', 'uxDesc', 'paymentTitle', 'paymentSubtitle', 'pStep1Title', 'pStep1Desc', 'pStep1Amount', 'pStep2Title', 'pStep2Desc', 'pStep2Amount', 'pStep3Title', 'pStep3Desc', 'pStep3Amount', 'guaranteeTitle', 'guaranteeDesc', 'contactTitle', 'contactSubtitle', 'emailLabel', 'contactEmail', 'emailBtn', 'telegramLabel', 'contactTelegram', 'telegramBtn', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = t[id];
