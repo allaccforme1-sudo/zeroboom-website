@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZeroBoom | From Zero to Summit</title>
-    <meta name="description" content="ZeroBoom - Professional web design agency. From Zero to Summit.">
-    <meta name="keywords" content="web design, website development, SEO, UI/UX, ZeroBoom">
-    <meta name="author" content="ZeroBoom">
     
+    <!-- SEO Meta Tags -->
+    <title>ZeroBoom | From Zero to Summit - Professional Web Design</title>
+    <meta name="description" content="ZeroBoom is a professional web design agency. We build modern, fast, and beautiful websites that help your business grow from zero to summit.">
+    <meta name="keywords" content="web design, website development, SEO, UI/UX, ZeroBoom, professional website, responsive design">
+    <meta name="author" content="ZeroBoom">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Social Media) -->
     <meta property="og:title" content="ZeroBoom | From Zero to Summit">
-    <meta property="og:description" content="Professional web design agency.">
+    <meta property="og:description" content="Professional web design agency. We build digital experiences that drive results.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://allaccforme1-sudo.github.io/zeroboom-website/">
+    <meta property="og:site_name" content="ZeroBoom">
     
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZeroBoom | From Zero to Summit">
+    <meta name="twitter:description" content="Professional web design agency. We build digital experiences that drive results.">
+    
+    <!-- Favicon (SVG) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23f093fb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='55' font-weight='900' fill='url(%23g)' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
     
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
@@ -89,7 +100,7 @@
     <canvas id="particles-canvas"></canvas>
 
     <button class="lang-switcher" onclick="toggleLanguage()">
-        <span></span> <span id="langText">فارسی</span>
+        <span>🌐</span> <span id="langText">فارسی</span>
     </button>
 
     <div class="hero-container">
@@ -104,6 +115,7 @@
         </div>
     </footer>
 
+    <!-- Chatbot -->
     <button class="chatbot-toggle" onclick="toggleChatbot()">
         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
     </button>
@@ -133,7 +145,7 @@
             fa: {
                 tagline: "از صفر تا بام", ctaBtn: "شروع پروژه", langText: "English",
                 chatbotTitle: "دستیار زیروبام", chatbotStatus: "آنلاین",
-                footerCopy: "© ۲۰۲۶ زیروبام. تمامی حقوق محفوظ است.",
+                footerCopy: "© ۰۲۶ زیروبام. تمامی حقوق محفوظ است.",
                 dir: "rtl", lang: "fa"
             }
         };
@@ -155,6 +167,7 @@
         }
         applyLanguage(currentLang);
 
+        // Particle Animation
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
