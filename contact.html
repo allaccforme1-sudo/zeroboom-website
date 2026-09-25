@@ -604,7 +604,7 @@
         function applyLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
-            const ids = ['tagline', 'knowledgeTitle', 'knowledgeSubtitle', 'jsTitle', 'jsDesc', 'seoTitle', 'seoDesc', 'htmlTitle', 'htmlDesc', 'responsiveTitle', 'responsiveDesc', 'wpTitle', 'wpDesc', 'uxTitle', 'uxDesc', 'paymentTitle', 'paymentSubtitle', 'pStep1Title', 'pStep1Desc', 'pStep1Amount', 'pStep2Title', 'pStep2Desc', 'pStep2Amount', 'pStep3Title', 'pStep3Desc', 'pStep3Amount', 'guaranteeTitle', 'guaranteeDesc', 'contactTitle', 'contactSubtitle', 'emailLabel', 'contactEmail', 'emailBtn', 'telegramLabel', 'contactTelegram', 'telegramBtn', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
+            const ids = ['tagline', 'knowledgeTitle', 'knowledgeSubtitle', 'jsTitle', 'jsDesc', 'seoTitle', 'seoDesc', 'htmlTitle', 'htmlDesc', 'responsiveTitle', 'responsiveDesc', 'wpTitle', 'wpDesc', 'uxTitle', 'uxDesc', 'paymentTitle', 'paymentSubtitle', 'pStep1Title', 'pStep1Desc', 'pStep1Amount', 'pStep2Title', 'pStep2Desc', 'pStep2Amount', 'pStep3Title', 'pStep3Desc', 'pStep3Amount', 'guaranteeTitle', 'guaranteeDesc', 'contactTitle', 'contactSubtitle', 'emailLabel', 'contactEmail', 'emailBtn', 'telegramLabel', 'contactTelegram', 'telegramBtn', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'navRequest', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = t[id];
