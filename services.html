@@ -542,7 +542,7 @@
         function applyLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
-            const ids = ['pageTitle', 'pageSubtitle', 'servicesTitle', 's1Title', 's1Desc', 's2Title', 's2Desc', 's3Title', 's3Desc', 's4Title', 's4Desc', 'techTitle', 'tech1', 'tech2', 'tech3', 'tech4', 'tech5', 'tech6', 'processTitle', 'p1Title', 'p1Desc', 'p2Title', 'p2Desc', 'p3Title', 'p3Desc', 'p4Title', 'p4Desc', 'whyTitle', 'w1Title', 'w1Desc', 'w2Title', 'w2Desc', 'w3Title', 'w3Desc', 'w4Title', 'w4Desc', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
+            const ids = ['pageTitle', 'pageSubtitle', 'servicesTitle', 's1Title', 's1Desc', 's2Title', 's2Desc', 's3Title', 's3Desc', 's4Title', 's4Desc', 'techTitle', 'tech1', 'tech2', 'tech3', 'tech4', 'tech5', 'tech6', 'processTitle', 'p1Title', 'p1Desc', 'p2Title', 'p2Desc', 'p3Title', 'p3Desc', 'p4Title', 'p4Desc', 'whyTitle', 'w1Title', 'w1Desc', 'w2Title', 'w2Desc', 'w3Title', 'w3Desc', 'w4Title', 'w4Desc', 'ctaTitle', 'ctaDesc', 'ctaBtn', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'navRequest', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = t[id];
