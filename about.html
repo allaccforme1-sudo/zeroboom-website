@@ -474,7 +474,7 @@
         function applyLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
-            const ids = ['pageTitle', 'pageSubtitle', 'storyTitle', 'storyP1', 'storyP2', 'whyTitle', 'f1Title', 'f1Desc', 'f2Title', 'f2Desc', 'f3Title', 'f3Desc', 'f4Title', 'f4Desc', 'processTitle', 'p1Title', 'p1Desc', 'p2Title', 'p2Desc', 'p3Title', 'p3Desc', 'p4Title', 'p4Desc', 'teamTitle', 'role1', 'role2', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
+            const ids = ['pageTitle', 'pageSubtitle', 'storyTitle', 'storyP1', 'storyP2', 'whyTitle', 'f1Title', 'f1Desc', 'f2Title', 'f2Desc', 'f3Title', 'f3Desc', 'f4Title', 'f4Desc', 'processTitle', 'p1Title', 'p1Desc', 'p2Title', 'p2Desc', 'p3Title', 'p3Desc', 'p4Title', 'p4Desc', 'teamTitle', 'role1', 'role2', 'langText', 'navHome', 'navAbout', 'navServices', 'navContact', 'navRequest', 'chatbotTitle', 'chatbotStatus', 'footerDesc', 'footerEmail', 'footerCopy'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = t[id];
