@@ -159,14 +159,15 @@
 <body>
     <canvas id="bg-canvas"></canvas>
 
-    <nav class="navbar">
+       <nav class="navbar">
         <a href="index.html" class="nav-logo">ZeroBoom</a>
-        <ul class="nav-menu">
-            <li><a href="index.html" id="navHome">خانه</a></li>
-            <li><a href="about.html" id="navAbout">درباره ما</a></li>
-            <li><a href="services.html" id="navServices">خدمات</a></li>
-            <li><a href="contact.html#contactCards" id="navContact">تماس با ما</a></li>
-            <li><a href="request.html" id="navRequest" style="color:#f093fb;">ثبت درخواست</a></li>
+        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" id="navHome">Home</a></li>
+            <li><a href="about.html" id="navAbout">About Us</a></li>
+            <li><a href="services.html" id="navServices">Services</a></li>
+            <li><a href="contact.html#contactCards" id="navContact">Contact Us</a></li>
+            <li><a href="request.html" id="navRequest"></a></li>
         </ul>
     </nav>
 
