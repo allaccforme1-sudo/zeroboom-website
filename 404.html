@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیدا نشد | ZeroBoom</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Vazirmatn', sans-serif; background: #0a0a0a; color: #fff;
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; overflow: hidden;
+        }
+        .error-code {
+            font-size: 8rem; font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            line-height: 1; margin-bottom: 10px;
+        }
+        .error-title { font-size: 2rem; font-weight: 700; margin-bottom: 15px; }
+        .error-desc { color: #aaaaaa; font-size: 1.1rem; margin-bottom: 40px; max-width: 500px; line-height: 1.6; }
+        .home-btn {
+            padding: 12px 35px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .home-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4); }
+        @media (max-width: 768px) { .error-code { font-size: 5rem; } .error-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <div class="error-code">404</div>
+    <h1 class="error-title">صفحه پیدا نشد!</h1>
+    <p class="error-desc">متأسفانه صفحه‌ای که دنبالش می‌گردی وجود نداره یا آدرسش تغییر کرده. نگران نباش، می‌تونی برگردی به صفحه اصلی.</p>
+    <a href="index.html" class="home-btn">برگشت به خانه</a>
+</body>
+</html>
