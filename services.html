@@ -151,10 +151,13 @@
             background: rgba(102, 126, 234, 0.05);
         }
         .faq-item.active .faq-answer { max-height: 200px; padding: 0 20px 20px; }
-        .faq-answer p { color: #aaaaaa; line-height: 1.8; font-size: 0.95rem; margin: 0; direction: rtl; text-align: right; }
-        body[dir="ltr"] .faq-answer p { direction: ltr; text-align: left; }
-        body[dir="ltr"] .faq-question span:first-child { direction: ltr; text-align: left; }
-
+               .faq-answer p { 
+            color: #aaaaaa; line-height: 1.8; font-size: 0.95rem; margin: 0; 
+            unicode-bidi: plaintext; text-align: start; 
+        }
+        .faq-question span:first-child { 
+            unicode-bidi: plaintext; 
+        }
         .site-footer {
             position: relative; z-index: 2;
             background: rgba(5, 5, 5, 0.9);
